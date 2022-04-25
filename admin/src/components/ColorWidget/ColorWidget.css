@@ -1,0 +1,35 @@
+.color-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.color-item {
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 21px;
+  color: black;
+  /* -webkit-text-stroke: 1px black; */
+}
+
+.color-item-button {
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+  border: white solid 2px;
+  -webkit-box-shadow: 1px 1px 1px 1px #7d7d7d63 inset;
+  box-shadow: 1px 1px 1px 1px #7d7d7d63 inset;
+}
+
+.color-item-name {
+  font-size: 12px;
+}
+.color-item-button.activeSelected {
+  border: lightskyblue 3px solid;
+}
+
+.color-item-name.activeSelected {
+  color: lightskyblue;
+}
