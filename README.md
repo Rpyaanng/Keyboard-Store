@@ -7,5 +7,5 @@ To install dependencies
 To run the local server and admin server.
 ```npm start 
 cd admin
-npm start```
-
+npm start
+```
