@@ -5,7 +5,8 @@ To install dependencies
   ```npm install```
   
 To run the local server and admin server.
-```npm start 
+```
+npm start 
 cd admin
 npm start
 ```
