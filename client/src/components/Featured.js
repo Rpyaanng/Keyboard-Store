@@ -1,8 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
-import { useHolderjs } from "use-holderjs";
 
 const Featured = () => {
-  useHolderjs();
   return (
     <div>
       <h1>Featured</h1>

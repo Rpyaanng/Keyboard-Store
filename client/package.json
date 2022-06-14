@@ -43,8 +43,5 @@
     ]
   },
   "proxy": "http://localhost:5000",
-  "devDependencies": {
-    "holderjs": "^2.9.9",
-    "use-holderjs": "^0.0.8"
-  }
+  "devDependencies": {}
 }

@@ -24,7 +24,7 @@ const FormRow = ({
         </label>
       )}
 
-      <span className={className}>{prefix}</span>
+      {prefix && <span className={className}>{prefix}</span>}
       <input
         type={type}
         value={value}
@@ -37,6 +37,7 @@ const FormRow = ({
         className={className}
         disabled={disabled}
       />
+      {suffix && <span className={className}>{suffix}</span>}
     </div>
   );
 };
