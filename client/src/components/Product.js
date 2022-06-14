@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Wrapper from "../assets/wrappers/Product";
-import ReactHolder from "react-holder";
 
 const Product = ({ name }) => {
   return (

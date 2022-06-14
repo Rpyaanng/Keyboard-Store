@@ -37,6 +37,7 @@ const FormRow = ({
         className={className}
         disabled={disabled}
       />
+      {suffix && <span className={className}>{suffix}</span>}
     </div>
   );
 };
