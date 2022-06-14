@@ -1,17 +1,31 @@
-import Product from "./Product";
+import { useEffect, useState } from "react";
+import Axios from "axios";
+import ProductListing from "./ProductListing";
 import Wrapper from "../assets/wrappers/Recommended";
-
 const Recommended = () => {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const response = await Axios.get("/api/v1/products");
+    const { products } = response.data;
+    setProducts(products);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <Wrapper>
       <h1>Recommended</h1>
-      <div className="product-list container">
-        <Product name="1" />
-        <Product name="2" />
-        <Product name="3" />
-        <Product name="4" />
-        <Product name="5" />
-        <Product name="6" />
+
+      <div className="products">
+        {products.map((product) => (
+          <ProductListing key={product._id} product={product}>
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+          </ProductListing>
+        ))}
       </div>
     </Wrapper>
   );

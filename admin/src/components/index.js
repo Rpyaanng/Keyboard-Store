@@ -6,10 +6,11 @@ import SmallSidebar from "./SmallSidebar";
 import Navbar from "./Navbar";
 import ShoppingCart from "./ShoppingCart";
 import Featured from "./Featured";
-import Product from "./Product";
 import Recommended from "./Recommended";
 import Chart from "./Chart";
 import Modal from "./Modal";
+import ProductListing from "./ProductListing";
+
 export {
   Logo,
   FormRow,
@@ -19,8 +20,8 @@ export {
   Navbar,
   ShoppingCart,
   Featured,
-  Product,
   Recommended,
   Chart,
   Modal,
+  ProductListing,
 };

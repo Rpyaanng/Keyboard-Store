@@ -1,12 +1,16 @@
 # Keyboard-Store
-This project  is a e-commerce store that specializes in the sale of keyboards created with the MERN Stack
+
+![](https://i.imgur.com/kCJ3dcB.png)
+
+This project is a e-commerce store that specializes in the sale of keyboards created with the MERN Stack
 
 To install dependencies
-  ```npm install```
-  
+`npm install`
+
 To run the local server and admin server.
+
 ```
-npm start 
+npm start
 cd admin
 npm start
 ```

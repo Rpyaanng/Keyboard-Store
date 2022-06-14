@@ -36,7 +36,7 @@ export const initialState = {
   showSidebar: false,
   showShoppingCart: false,
   shoppingCart: [],
-  showModal: true,
+  showModal: false,
   modalContent: null,
 };
 

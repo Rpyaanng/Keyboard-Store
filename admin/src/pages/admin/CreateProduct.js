@@ -21,13 +21,21 @@ const CreateProduct = () => {
   const getSunEditorInstance = (sunEditor) => {
     editor.current = sunEditor;
   };
-  const [image, setImage] = useState([]);
 
-  const { isLoading, showAlert, createProduct, displayAlert } = useAppContext();
+  const {
+    isLoading,
+    showAlert,
+    createProduct,
+    displayAlert,
+    setModalContent,
+    setShowModal,
+  } = useAppContext();
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [images, setImages] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
+  const [fallback, setFallback] = useState(false);
   const [quantity, setQuantity] = useState("");
   const [colors, setColors] = useState([]);
   const [variants, setVariants] = useState([]);
@@ -36,13 +44,8 @@ const CreateProduct = () => {
   const [categories, setCategories] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleUploadImage = (files) => {
-    const collection = [];
-    files.forEach((file) => {
-      console.log(file);
-      collection.push(file.base64);
-    });
-    setImages([...images, ...collection]);
+  const handleUploadImage = (imageUrl) => {
+    setImages([...images, imageUrl]);
   };
   const handleCategories = (e) => {
     if (e.key === "Enter") {
@@ -61,17 +64,23 @@ const CreateProduct = () => {
       categories,
       isVisible,
     };
+    console.log(imageUrl);
     createProduct(product);
     displayAlert();
   };
 
-  ////////////////////////////////////////////////////remove  later
-  useEffect(() => {
-    setColors([
-      { name: "red", color: "#FF0000" },
-      { name: "blue", color: "#0000FF" },
-    ]);
-  }, []);
+  const onImageSubmit = (e) => {
+    e.preventDefault();
+    console.log(imageUrl);
+    if (!imageUrl) {
+      displayAlert();
+      return;
+    }
+    handleUploadImage(imageUrl);
+    setShowModal(false);
+    displayAlert();
+  };
+
   return (
     <>
       <div className="nav-header">
@@ -125,7 +134,29 @@ const CreateProduct = () => {
                 className="holder"
                 key={images.length}
                 onClick={() => {
-                  console.log("clicked");
+                  setModalContent(
+                    <form className="form" onSubmit={onImageSubmit}>
+                      {showAlert && <Alert />}
+                      <FormRow
+                        type="text"
+                        name="imageUrl"
+                        labelText="Image URL"
+                        placeholder="www.example.com"
+                        className="form-input"
+                        handleChange={(e) => setImageUrl(e.target.value)}
+                      />
+                      <button className="btn btn-block" type="submit">
+                        add image
+                      </button>
+                      <button
+                        className="btn btn-block"
+                        onClick={() => setShowModal(false)}
+                      >
+                        cancel
+                      </button>
+                    </form>
+                  );
+                  setShowModal(true);
                 }}
               >
                 <img
@@ -159,7 +190,7 @@ const CreateProduct = () => {
                 hideLabel={true}
                 prefix="$"
               />
-              <div>
+              {/* <div>
                 <span>Colors:</span>
                 <ColorWidget colors={colors} />
               </div>
@@ -168,7 +199,7 @@ const CreateProduct = () => {
               </div>
               <div>
                 <span>Addons:</span>
-              </div>
+              </div> */}
               <button className="btn btn-block" disabled>
                 Add to Shopping Cart
               </button>

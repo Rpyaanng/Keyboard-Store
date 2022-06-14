@@ -56,12 +56,10 @@ const getProducts = async (req, res) => {
   // Access the provided 'page' and 'limt' query parameters
   const page = req.query.page;
   const limit = req.query.limit;
-  const categories = req.query.categories.split(",");
-  console.log(categories);
+
   // Find all products
   const products = await Product.find({
     hidden: "false",
-    categories: { $in: categories },
   })
     .batchSize(limit)
     .skip(page * limit);

@@ -40,6 +40,12 @@ const productSchema = new mongoose.Schema(
       max: 5,
       default: 0,
     },
+    numRatings: {
+      type: Number,
+      min: 0,
+      max: 1000000,
+      default: 0,
+    },
     discounted: {
       type: Boolean,
       default: false,
@@ -54,90 +60,90 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    variants: {
-      type: [
-        {
-          name: {
-            type: String,
-            minlength: 1,
-            maxlength: 20,
-            default: "Variant Name",
-            isRequired: true,
-          },
-          price: {
-            type: Number,
-            min: -1000000,
-            max: 1000000,
-            default: 0,
-            isRequired: true,
-          },
-          quantity: {
-            type: Number,
-            min: 0,
-            max: 1000000,
-            default: 0,
-          },
-          image: {
-            type: String,
-            default: "",
-          },
-        },
-      ],
-    },
-    colors: {
-      type: [
-        {
-          name: {
-            type: String,
-            minlength: 1,
-            maxlength: 20,
-            default: "Color Name",
-            isRequired: true,
-          },
-          hex: {
-            type: String,
-            default: "#FFFFFF",
-          },
-          price: {
-            type: Number,
-            min: -1000000,
-            max: 1000000,
-            default: 0,
-            isRequired: true,
-          },
-        },
-      ],
-    },
-    addons: {
-      type: [
-        {
-          name: {
-            type: String,
-            minlength: 1,
-            maxlength: 20,
-            default: "Addon Name",
-            isRequired: true,
-          },
-          price: {
-            type: Number,
-            min: 0,
-            max: 1000000,
-            default: 0,
-            isRequired: true,
-          },
-          quantity: {
-            type: Number,
-            min: 0,
-            max: 1000000,
-            default: 0,
-          },
-          image: {
-            type: String,
-            default: "",
-          },
-        },
-      ],
-    },
+    //   variants: {
+    //     type: [
+    //       {
+    //         name: {
+    //           type: String,
+    //           minlength: 1,
+    //           maxlength: 20,
+    //           default: "Variant Name",
+    //           isRequired: true,
+    //         },
+    //         price: {
+    //           type: Number,
+    //           min: -1000000,
+    //           max: 1000000,
+    //           default: 0,
+    //           isRequired: true,
+    //         },
+    //         quantity: {
+    //           type: Number,
+    //           min: 0,
+    //           max: 1000000,
+    //           default: 0,
+    //         },
+    //         image: {
+    //           type: String,
+    //           default: "",
+    //         },
+    //       },
+    //     ],
+    //   },
+    //   colors: {
+    //     type: [
+    //       {
+    //         name: {
+    //           type: String,
+    //           minlength: 1,
+    //           maxlength: 20,
+    //           default: "Color Name",
+    //           isRequired: true,
+    //         },
+    //         hex: {
+    //           type: String,
+    //           default: "#FFFFFF",
+    //         },
+    //         price: {
+    //           type: Number,
+    //           min: -1000000,
+    //           max: 1000000,
+    //           default: 0,
+    //           isRequired: true,
+    //         },
+    //       },
+    //     ],
+    //   },
+    //   addons: {
+    //     type: [
+    //       {
+    //         name: {
+    //           type: String,
+    //           minlength: 1,
+    //           maxlength: 20,
+    //           default: "Addon Name",
+    //           isRequired: true,
+    //         },
+    //         price: {
+    //           type: Number,
+    //           min: 0,
+    //           max: 1000000,
+    //           default: 0,
+    //           isRequired: true,
+    //         },
+    //         quantity: {
+    //           type: Number,
+    //           min: 0,
+    //           max: 1000000,
+    //           default: 0,
+    //         },
+    //         image: {
+    //           type: String,
+    //           default: "",
+    //         },
+    //       },
+    //     ],
+    //   },
   },
   { timestamps: true }
 );

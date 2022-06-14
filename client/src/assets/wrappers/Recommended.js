@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  .product-list {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+  margin-top: 4rem;
+  h2 {
+    text-transform: none;
   }
-
+  & > h5 {
+    font-weight: 700;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
   @media (min-width: 992px) {
-    .product-list {
-      margin: 0 auto;
+    .products {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-gap: 10px;
+      gap: 1rem;
     }
   }
 `;

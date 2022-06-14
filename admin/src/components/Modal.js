@@ -6,7 +6,7 @@ const Modal = () => {
   return (
     showModal && (
       <Wrapper>
-        <div className="modal" onClick={() => setShowModal(false)}>
+        <div className="modal">
           <div className="modal-content">{modalContent}</div>
         </div>
       </Wrapper>

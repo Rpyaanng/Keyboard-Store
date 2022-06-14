@@ -22,7 +22,7 @@ const links = [
     id: 3,
     text: "Switches",
     icon: <SwitchIcon />,
-    path: "/search/switch",
+    path: "/search/switches",
   },
   {
     id: 4,
