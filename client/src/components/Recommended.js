@@ -9,6 +9,7 @@ const Recommended = () => {
     const response = await Axios.get("/api/v1/products");
     const { products } = response.data;
     setProducts(products);
+    console.log(products);
   };
 
   useEffect(() => {

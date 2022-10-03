@@ -8,7 +8,6 @@ const FrontPage = () => {
     <div className="container">
       <Featured />
       <Recommended />
-      <h1>Browsing History:</h1>
     </div>
   );
 };

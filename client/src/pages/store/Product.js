@@ -1,5 +1,5 @@
 import Wrapper from "../../assets/wrappers/CreateProduct";
-import { FormRow, Logo, Alert } from "../../components";
+
 import { useAppContext } from "../../context/appContext";
 
 import Axios from "axios";
@@ -10,6 +10,8 @@ import { useParams } from "react-router-dom";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const Product = () => {
+  const { setShoppingCartItem } = useAppContext();
+  const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -63,7 +65,24 @@ const Product = () => {
                     <FaRegStar key={idx} />
                   ))}
               </div>
-              <button className="btn btn-block" disabled>
+              <select onChange={(e) => setQuantity(e.target.value)}>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+              <button
+                className="btn btn-block"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShoppingCartItem(id, {
+                    id: id,
+                    quantity: quantity,
+                    imageUrl: product.images[0],
+                    name: product.name,
+                    price: product.price,
+                  });
+                }}
+              >
                 Add to Shopping Cart
               </button>
               <div

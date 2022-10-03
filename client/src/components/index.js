@@ -8,6 +8,7 @@ import ShoppingCart from "./ShoppingCart";
 import Featured from "./Featured";
 import Product from "./Product";
 import Recommended from "./Recommended";
+import ShoppingCartItem from "./ShoppingCartItem";
 export {
   Logo,
   FormRow,

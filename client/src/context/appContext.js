@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import axios from "axios";
 import reducer from "./reducer";
 import {
@@ -14,10 +14,15 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  SET_SHOPPINGCART_ITEM,
+  DELETE_SHOPPINGCART_ITEM,
 } from "./action";
 
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
+const shoppingCart = localStorage.getItem("shoppingCart");
+const showShoppingCart = localStorage.getItem("showShoppingCart");
+console.log(JSON.parse(showShoppingCart) === true);
 
 export const initialState = {
   isLoading: false,
@@ -29,13 +34,24 @@ export const initialState = {
   token: token,
   userLocation: null,
   showSidebar: false,
-  showShoppingCart: false,
+  showShoppingCart: showShoppingCart ? JSON.parse(showShoppingCart) : false,
+  shoppingCart: shoppingCart ? JSON.parse(shoppingCart) : {},
 };
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Saves shoppingCart on change
+  useEffect(() => {
+    saveShoppingCartToLocalStorage(state.shoppingCart);
+  }, [state.shoppingCart]);
+
+  // Stores showShoppingCart on Save
+  useEffect(() => {
+    localStorage.setItem("showShoppingCart", state.showShoppingCart);
+  }, [state.showShoppingCart]);
 
   const authFetch = axios.create({
     baseURL: "/api/v1",
@@ -71,6 +87,10 @@ const AppProvider = ({ children }) => {
   const removeUserFromLocalStorage = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+  };
+
+  const saveShoppingCartToLocalStorage = (shoppingCart) => {
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
   };
 
   const setShowSidebar = (bool) => {
@@ -145,6 +165,20 @@ const AppProvider = ({ children }) => {
     window.location.href = "/register";
   };
 
+  const setShoppingCartItem = (id, values) => {
+    dispatch({
+      type: SET_SHOPPINGCART_ITEM,
+      payload: { id: id, object: values },
+    });
+  };
+
+  const deleteShoppingCartItem = (id) => {
+    dispatch({
+      type: DELETE_SHOPPINGCART_ITEM,
+      payload: { id: id },
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -156,6 +190,8 @@ const AppProvider = ({ children }) => {
         updateUser,
         toggleShoppingCart,
         setShowSidebar,
+        setShoppingCartItem,
+        deleteShoppingCartItem,
       }}
     >
       {children}

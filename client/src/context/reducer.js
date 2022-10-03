@@ -11,6 +11,8 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_ERROR,
   UPDATE_USER_SUCCESS,
+  SET_SHOPPINGCART_ITEM,
+  DELETE_SHOPPINGCART_ITEM,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -94,6 +96,25 @@ const reducer = (state, action) => {
       return {
         ...state,
         showShoppingCart: !state.showShoppingCart,
+      };
+    case SET_SHOPPINGCART_ITEM:
+      return {
+        ...state,
+        shoppingCart: {
+          ...state.shoppingCart,
+          [action.payload.id]: action.payload.object,
+        },
+      };
+    case DELETE_SHOPPINGCART_ITEM:
+      return {
+        ...state,
+        shoppingCart: Object.keys(state.shoppingCart)
+          .filter((key) => key !== action.payload.id)
+          .reduce((object, key) => {
+            return Object.assign(object, {
+              [key]: state.shoppingCart[key],
+            });
+          }, []),
       };
     default:
       throw new Error(`no such action : ${action.type}`);

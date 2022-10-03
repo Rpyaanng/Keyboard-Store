@@ -6,6 +6,8 @@ const ProductListing = ({ product }) => {
   const { _id, name, description, price, rating, images } = product;
   const navigate = useNavigate();
 
+  console.log(product);
+
   return (
     <Wrapper
       onClick={() => {

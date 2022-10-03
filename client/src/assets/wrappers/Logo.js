@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.a`
+const Wrapper = styled.div`
   img {
     max-width: 100%;
     margin: auto 1rem;

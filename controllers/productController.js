@@ -64,6 +64,7 @@ const getProducts = async (req, res) => {
     .batchSize(limit)
     .skip(page * limit);
 
+  console.log(products);
   // Return the articles to the rendering engine
   res.status(StatusCodes.OK).json({
     products,

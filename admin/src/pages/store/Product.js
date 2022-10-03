@@ -2,7 +2,6 @@ import Wrapper from "../../assets/wrappers/CreateProduct";
 import { FormRow, Logo, Alert } from "../../components";
 import { useAppContext } from "../../context/appContext";
 
-import "react-toggle/style.css";
 import Axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
