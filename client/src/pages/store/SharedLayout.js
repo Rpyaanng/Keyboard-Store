@@ -13,7 +13,7 @@ const SharedLayout = () => {
       <main className="dashboard">
         <SmallSidebar />
         <BigSidebar />
-        <div>
+        <div className="main-content">
           <Navbar />
           <div>
             <Outlet />

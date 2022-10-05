@@ -1,28 +1,61 @@
 import styled from "styled-components";
 
 const Wrapper = styled.nav`
-  height: var(--nav-height);
   display: flex;
   background: var(--ui-color);
+  height: var(--nav-height-mobile);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
   .logo {
     display: flex;
     align-items: center;
     width: 250px;
-    display: none;
   }
   .nav-center {
     display: flex;
-
+    flex-grow: 1;
     align-items: center;
     justify-content: space-between;
   }
 
+  .btn-container {
+    display: none;
+  }
+
   .left,
-  .middle .right {
+  .middle {
     display: flex;
+    transition: var(--transition);
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left-1 {
+    display: none;
+  }
+
+  .left-2 {
+    transition: var(--transition);
+    width: 0;
+  }
+
+  .left-2.not-main {
+    transition: var(--transition);
+    width: 2.5rem;
+  }
+
+  .left-2 button {
+    padding: 1rem;
   }
 
   .middle {
+    flex-grow: 1;
+    transition: var(--transition);
   }
   .sidebar-btn {
     background: transparent;
@@ -43,13 +76,6 @@ const Wrapper = styled.nav`
     align-items: center;
   }
 
-  .btn-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
   .btn {
     display: flex;
     align-items: center;
@@ -87,19 +113,41 @@ const Wrapper = styled.nav`
     display: none;
     margin: 0;
   }
+
+  .back-arrow {
+    background: none;
+    border: none;
+  }
+
   .main-input {
-    width: 15rem;
+    margin: 0 5vw;
+    width: 100%;
   }
 
   @media (min-width: 992px) {
     position: sticky;
     top: 0;
+    height: var(--nav-height);
+
+    .left-1 {
+      display: flex;
+    }
+    .left-2 {
+      display: none;
+    }
 
     .nav-center {
       width: 100%;
     }
     .sidebar-btn {
       display: none;
+    }
+    .btn-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
     .nav-center {
       padding: 1rem;

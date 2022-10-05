@@ -16,6 +16,7 @@ import {
   UPDATE_USER_ERROR,
   SET_SHOPPINGCART_ITEM,
   DELETE_SHOPPINGCART_ITEM,
+  SET_ISMAINPAGE,
 } from "./action";
 
 const token = localStorage.getItem("token");
@@ -36,6 +37,7 @@ export const initialState = {
   showSidebar: false,
   showShoppingCart: showShoppingCart ? JSON.parse(showShoppingCart) : false,
   shoppingCart: shoppingCart ? JSON.parse(shoppingCart) : {},
+  isMainPage: false,
 };
 
 const AppContext = React.createContext();
@@ -179,6 +181,13 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const setMainPage = (bool) => {
+    dispatch({
+      type: SET_ISMAINPAGE,
+      payload: { bool: bool },
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -192,6 +201,7 @@ const AppProvider = ({ children }) => {
         setShowSidebar,
         setShoppingCartItem,
         deleteShoppingCartItem,
+        setMainPage,
       }}
     >
       {children}

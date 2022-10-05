@@ -64,6 +64,7 @@ html {
   --fluid-width: 90vw;
   --breakpoint-lg: 992px;
   --nav-height: 6rem;
+  --nav-height-mobile: 4rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -155,7 +156,7 @@ ul {
 
 .side-padding {
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 3rem;
 }
 
 .img {
@@ -169,9 +170,12 @@ ul {
   width: 52px;
   height: 52px;
   overflow: hidden;
+  background-color: black;
+  object-fit: contain;
 }
 
 .thumbnail img {
+  
   position: absolute;
   left: 50%;
   top: 50%;

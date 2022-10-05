@@ -13,6 +13,7 @@ import {
   UPDATE_USER_SUCCESS,
   SET_SHOPPINGCART_ITEM,
   DELETE_SHOPPINGCART_ITEM,
+  SET_ISMAINPAGE,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -115,6 +116,11 @@ const reducer = (state, action) => {
               [key]: state.shoppingCart[key],
             });
           }, []),
+      };
+    case SET_ISMAINPAGE:
+      return {
+        ...state,
+        isMainPage: action.payload.bool,
       };
     default:
       throw new Error(`no such action : ${action.type}`);

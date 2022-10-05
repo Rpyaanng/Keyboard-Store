@@ -1,7 +1,5 @@
 import Wrapper from "../../assets/wrappers/CreateProduct";
-
 import { useAppContext } from "../../context/appContext";
-
 import Axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -94,8 +92,10 @@ const Product = () => {
             <hr></hr>
             <p className="price">${product.price}</p>
           </form>
+          <hr></hr>
         </div>
       </div>
+
       <div className="description">
         <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
       </div>

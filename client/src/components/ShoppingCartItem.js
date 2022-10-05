@@ -13,9 +13,9 @@ const ShoppingCartItem = ({ item }) => {
             <img src={imageUrl} alt={name + " image"}></img>
           </div>
           <div className="content-box">
-            <h5 className="product-name">{name}</h5>
+            <p className="product-name">{name}</p>
             <div>
-              <span> ${price * quantity}</span>
+              <span> ${(price * quantity).toFixed(2)}</span>
               <input
                 type="number"
                 value={`${quantity}`}
