@@ -5,7 +5,7 @@ const FrontPage = () => {
     document.title = "FrontPage";
   }, []);
   return (
-    <div className="container">
+    <div>
       <Featured />
       <Recommended />
     </div>

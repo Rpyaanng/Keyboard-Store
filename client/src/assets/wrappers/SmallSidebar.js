@@ -43,6 +43,7 @@ const Wrapper = styled.aside`
     color: var(--red-dark);
     cursor: pointer;
   }
+
   .links {
     box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
     border-radius: var(--borderRadius);
@@ -72,10 +73,14 @@ const Wrapper = styled.aside`
   }
   .icon {
     font-size: 1.5rem;
-    margin-right: 1rem;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
     transition: var(--transition);
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    padding-left: 1rem;
   }
   .active {
     color: var(--grey-900);

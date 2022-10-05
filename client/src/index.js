@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.min.css";
 import normalize from "normalize.css";
 import "./index.css";
 import { AppProvider } from "./context/appContext";

@@ -9,7 +9,7 @@ const Wrapper = styled.aside`
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
     font-size: 0rem;
-    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+
     .sidebar-container {
       background: var(--white);
       margin-left: 0;
@@ -27,6 +27,7 @@ const Wrapper = styled.aside`
       height: 100vh;
       flex-direction: column;
       display: flex;
+      box-shadow: var(--shadow-1);
     }
     .top {
     }
@@ -93,6 +94,11 @@ const Wrapper = styled.aside`
       flex-direction: column;
     }
     .sidebar-btn {
+    }
+
+    .checkout {
+      border-radius: 0 !important;
+      margin: 0;
     }
   }
 `;

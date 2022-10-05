@@ -5,6 +5,7 @@ import {
   BigSidebar,
   SmallSidebar,
   ShoppingCart,
+  Footer,
 } from "../../components";
 const SharedLayout = () => {
   return (
@@ -14,8 +15,9 @@ const SharedLayout = () => {
         <BigSidebar />
         <div>
           <Navbar />
-          <div className="dashboard-page">
+          <div>
             <Outlet />
+            <Footer />
           </div>
         </div>
         <ShoppingCart />

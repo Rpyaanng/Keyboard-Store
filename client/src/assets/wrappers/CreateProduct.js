@@ -3,12 +3,6 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   border-radius: var(--borderRadius);
   width: 100%;
-  background: var(--white);
-
-  box-shadow: var(--shadow-2);
-  font-family: "Roboto Condensed", sans-serif;
-  .main {
-  }
 
   .header {
     margin: 1rem 0;
@@ -19,7 +13,7 @@ const Wrapper = styled.section`
     align-items: center;
     padding: 1rem;
     span {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
     }
   }
@@ -42,7 +36,7 @@ const Wrapper = styled.section`
 
   .quantity-input {
     background: none;
-    font-size: 24px;
+    font-size: 1rem;
     border: none;
     color: var(--textColor);
   }
@@ -52,13 +46,11 @@ const Wrapper = styled.section`
     overflow: hidden;
   }
   .name-input {
-    font-size: 36px;
     border: none;
     color: var(--textColor);
   }
   .price-input {
     color: var(--primary-500);
-    font-size: 32px;
     border: none;
   }
 
@@ -70,11 +62,11 @@ const Wrapper = styled.section`
   }
 
   .price {
+    font-size: 1.5rem;
     color: var(--primary-500);
   }
 
   .rating {
-    font-size: 1.8rem;
     color: var(--yellow);
     fill: var(--yellow);
   }

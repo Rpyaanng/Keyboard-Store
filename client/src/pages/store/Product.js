@@ -20,6 +20,8 @@ const Product = () => {
     quantity: 0,
     description: "",
     categories: [],
+    reviews: [],
+    numRatings: 0,
   });
 
   const { id } = useParams();
@@ -35,64 +37,73 @@ const Product = () => {
   }, []);
 
   return (
-    <>
-      <Wrapper>
-        <div className="main">
-          <div>
-            <Carousel showThumbs={true} infiniteLoop={true}>
-              {product.images.map((image, idx) => {
-                return (
-                  <div className="holder" key={idx}>
-                    <img className="carousel-image" src={image} alt="product" />
-                  </div>
-                );
-              })}
-            </Carousel>
-          </div>
-          <div>
-            <form>
-              <h2 className="name">{product.name}</h2>
-              <h3 className="price">${product.price}</h3>
-              <div className="rating">
-                {Array(product.rating)
-                  .fill()
-                  .map((_, idx) => (
-                    <FaStar key={idx} />
-                  ))}
-                {Array(5 - product.rating)
-                  .fill()
-                  .map((_, idx) => (
-                    <FaRegStar key={idx} />
-                  ))}
-              </div>
-              <select onChange={(e) => setQuantity(e.target.value)}>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-              <button
-                className="btn btn-block"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShoppingCartItem(id, {
-                    id: id,
-                    quantity: quantity,
-                    imageUrl: product.images[0],
-                    name: product.name,
-                    price: product.price,
-                  });
-                }}
-              >
-                Add to Shopping Cart
-              </button>
-              <div
-                dangerouslySetInnerHTML={{ __html: product.description }}
-              ></div>
-            </form>
-          </div>
+    <Wrapper>
+      <div className="main">
+        <div>
+          <Carousel showThumbs={true} infiniteLoop={true}>
+            {product.images.map((image, idx) => {
+              return (
+                <div className="holder product-img" key={idx}>
+                  <img className="carousel-image" src={image} alt="product" />
+                </div>
+              );
+            })}
+          </Carousel>
         </div>
-      </Wrapper>
-    </>
+        <div>
+          <form className="">
+            <h4 className="name">{product.name}</h4>
+
+            <div className="rating">
+              {Array(product.rating)
+                .fill()
+                .map((_, idx) => (
+                  <FaStar className="star" key={idx} />
+                ))}
+              {Array(5 - product.rating)
+                .fill()
+                .map((_, idx) => (
+                  <FaRegStar className="star" key={idx} />
+                ))}
+              <a>
+                {product.numRatings
+                  ? `${product.numRatings} Ratings`
+                  : "No Ratings"}
+              </a>
+            </div>
+            <select onChange={(e) => setQuantity(e.target.value)}>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <button
+              className="btn"
+              onClick={(e) => {
+                e.preventDefault();
+                setShoppingCartItem(id, {
+                  id: id,
+                  quantity: quantity,
+                  imageUrl: product.images[0],
+                  name: product.name,
+                  price: product.price,
+                });
+              }}
+            >
+              Add to Cart
+            </button>
+            <hr></hr>
+            <p className="price">${product.price}</p>
+          </form>
+        </div>
+      </div>
+      <div className="description">
+        <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
+      </div>
+      <div>
+        <h1 className="reviews">Reviews</h1>
+        {product.reviews ? <p>Reviews!</p> : <p>No Reviews for this product</p>}
+      </div>
+    </Wrapper>
   );
 };
 export default Product;

@@ -6,10 +6,13 @@ import SmallSidebar from "./SmallSidebar";
 import Navbar from "./Navbar";
 import ShoppingCart from "./ShoppingCart";
 import Featured from "./Featured";
-import Product from "./Product";
 import Recommended from "./Recommended";
 import ShoppingCartItem from "./ShoppingCartItem";
+import SectionTitle from "./SectionTitle";
+import Footer from "./Footer";
 export {
+  SectionTitle,
+  ShoppingCartItem,
   Logo,
   FormRow,
   Alert,
@@ -18,6 +21,6 @@ export {
   Navbar,
   ShoppingCart,
   Featured,
-  Product,
   Recommended,
+  Footer,
 };

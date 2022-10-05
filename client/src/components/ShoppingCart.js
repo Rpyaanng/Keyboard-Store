@@ -28,7 +28,7 @@ const ShoppingCart = () => {
       >
         <div className="content">
           <div className="top">
-            <h3>Shopping Cart</h3>
+            <h4>Shopping Cart</h4>
           </div>
           <div className="middle">
             <ul>

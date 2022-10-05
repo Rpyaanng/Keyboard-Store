@@ -9,17 +9,20 @@ const Wrapper = styled.aside`
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
     font-size: 0rem;
-    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+
     .sidebar-container {
       background: var(--white);
       margin-left: 0;
-      transition: var(--transition) 0.1ms;
       width: 90px;
+      transition: var(--transition) 0.1ms;
     }
+
     .show-sidebar {
       width: 250px;
       font-size: 1rem;
     }
+
     .content {
       background: var(--ui-color);
       width: inherit;
@@ -27,6 +30,7 @@ const Wrapper = styled.aside`
       height: 100vh;
       flex-direction: column;
       display: flex;
+      box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
     }
     .top {
     }
@@ -39,9 +43,6 @@ const Wrapper = styled.aside`
     header {
       height: var(--nav-height);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
     }
     .toggle-btn {
       background: transparent;
@@ -57,15 +58,34 @@ const Wrapper = styled.aside`
       display: flex;
       flex-direction: column;
     }
+
     .nav-link {
       display: flex;
-      align-items: center;
       color: var(--grey-500);
       padding: 1rem 0;
-      padding-left: 2rem;
       text-transform: capitalize;
       transition: var(--transition);
     }
+
+    .logo-text {
+      font-size: 1rem;
+      width: 0;
+      opacity: 0;
+    }
+
+    .show-sidebar .logo-text {
+      width: 4rem;
+
+      transition: var(--transition) 0.1ms;
+      overflow: visible;
+      opacity: 100%;
+    }
+
+    .nav-link .icon {
+      width: -webkit-fill-available;
+      justify-content: center;
+    }
+
     .nav-link:hover {
       background: var(--grey-50);
       padding-left: 2.5rem;
@@ -77,10 +97,11 @@ const Wrapper = styled.aside`
     .icon {
       font-size: 1.5rem;
       margin-right: 1rem;
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
       transition: var(--transition);
     }
+
     .active {
       color: var(--grey-900);
     }

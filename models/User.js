@@ -46,6 +46,9 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
+  history: {
+    type: [String],
+  },
 });
 
 userSchema.pre("save", async function (next) {

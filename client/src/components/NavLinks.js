@@ -20,8 +20,10 @@ const NavLinks = () => {
               isActive ? "nav-link active" : "nav-link"
             }
           >
-            <span className="icon">{icon}</span>
-            {text}
+            <div className="icon">
+              <span>{icon}</span>
+              <span className="logo-text">{text}</span>
+            </div>
           </NavLink>
         );
       })}

@@ -4,8 +4,6 @@ const Wrapper = styled.nav`
   height: var(--nav-height);
   display: flex;
   background: var(--ui-color);
-
-  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.1);
   .logo {
     display: flex;
     align-items: center;
@@ -14,16 +12,16 @@ const Wrapper = styled.nav`
   }
   .nav-center {
     display: flex;
-    width: 100vw;
+
     align-items: center;
     justify-content: space-between;
   }
 
   .left,
-  .middle,
-  .right {
+  .middle .right {
     display: flex;
   }
+
   .middle {
   }
   .sidebar-btn {
@@ -92,14 +90,19 @@ const Wrapper = styled.nav`
   .main-input {
     width: 15rem;
   }
+
   @media (min-width: 992px) {
     position: sticky;
     top: 0;
+
+    .nav-center {
+      width: 100%;
+    }
     .sidebar-btn {
       display: none;
     }
     .nav-center {
-      width: 90%;
+      padding: 1rem;
     }
     .logo {
       display: block;
@@ -108,7 +111,11 @@ const Wrapper = styled.nav`
       display: block;
     }
     .main-input {
-      width: 25rem;
+      width: 50rem;
+      height: 3rem;
+    }
+    .right {
+      display: flex;
     }
   }
 `;

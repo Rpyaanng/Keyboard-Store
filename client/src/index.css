@@ -6,6 +6,7 @@
 
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap");
+@import "normalize.css"; 
 
 html {
   font-size: 100%;
@@ -43,9 +44,12 @@ html {
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
+  --star-color: #ffa030;
+  --star-border: #e27f3c;
+
   /* fonts  */
-  --headingFont: "Roboto Condensed", Sans-Serif;
-  --bodyFont: "Cabin", Sans-Serif;
+  --headingFont: 'Montserrat', sans-serif;
+  --bodyFont: 'Montserrat', sans-serif;
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
@@ -53,7 +57,7 @@ html {
   --backgroundColor: var(--grey-50);
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
-  --letterSpacing: 1px;
+  --letterSpacing: 0;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 500px;
@@ -71,12 +75,13 @@ html {
 }
 
 body {
-  background-image: url("./assets/images/Background.png");
-  background-size: cover;
+  /* background-image: url("./assets/images/Background.png"); */
+  /* background-size: cover; */
   font-family: var(--bodyFont);
   font-weight: 400;
-  line-height: 1.75;
-  color: var(--textColor);
+  line-height: 1.25;
+  /* color: var(--textColor); */
+  background-image: linear-gradient(to top, rgba(26, 37, 28, 0) 90%, rgba(200, 200, 200, 0.29));
 }
 
 p {
@@ -109,7 +114,7 @@ h2 {
 
 h3 {
   font-size: 1.953rem;
-}
+} 
 
 h4 {
   font-size: 1.563rem;
@@ -125,19 +130,32 @@ small,
 }
 
 a {
+  display: -webkit-box;
   text-decoration: none;
   letter-spacing: var(--letterSpacing);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 a,
 button {
-  line-height: 1.15;
+  line-height: 1;
 }
+
 button:disabled {
   cursor: not-allowed;
 }
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+.mobile-hidden{
+  display: none;
+}
+
+.side-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .img {
@@ -170,21 +188,28 @@ ul {
 
 .product-img {
   position: relative;
-
-  max-height: 400px;
+  padding-top: 56.25%;
   overflow: hidden;
+  background-color: rgb(255, 255, 255);
+
 }
 
 .product-img img {
+  margin: 1px;
   position: absolute;
+  object-fit: contain;
   left: 50%;
   top: 50%;
   height: 100%;
   width: auto;
+  max-height: 100%;
+  max-width: 100%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  
 }
+
 .product-img img.portrait {
   width: 100%;
   height: auto;
@@ -194,6 +219,7 @@ ul {
 
 .btn {
   cursor: pointer;
+  margin-left: 1rem;
   color: var(--white);
   background: var(--primary-500);
   border: transparent;
@@ -310,6 +336,11 @@ ul {
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
 }
+
+.star {
+  color: var(--star-color);
+  border: var(--star-border);
+}
 /* alert */
 
 @keyframes spinner {
@@ -360,6 +391,10 @@ ul {
   color: var(--primary-500);
 }
 
+.indent {
+  margin-left: 3rem;
+}
+
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -379,5 +414,10 @@ ul {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
+  }
+
+  .side-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }

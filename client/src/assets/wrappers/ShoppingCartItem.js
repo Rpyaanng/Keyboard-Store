@@ -5,19 +5,16 @@ const Wrapper = styled.div`
   border: 1px whitesmoke;
   @media (min-width: 992px) {
     display: block;
-    border-bottom: 1px solid #ddd;
     box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 
     .body {
       display: flex;
       flex-direction: row;
     }
-
     .thumbnail {
       margin-left: 0.5rem;
       margin-right: 1rem;
     }
-
     .product-image {
       border: 1px solid #ddd; /* Gray border */
       border-radius: 4px; /* Rounded border */
