@@ -1,30 +1,31 @@
 import styled from "styled-components";
 
-const Wrapper = styled.section`
-  overflow: hidden;
+const Wrapper = styled.main`
+  .container {
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+  }
+
   .main-content {
     margin-top: var(--nav-height-mobile);
   }
-  .dashboard {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+
   .dashboard-page {
-    width: 100vw;
-    margin: 0 auto;
-    padding: 2rem 0;
   }
+
   @media (min-width: 992px) {
+    .container {
+      grid-template-columns: auto 1fr auto;
+    }
+
     .main-content {
       margin-top: 0;
     }
 
-    .dashboard {
-      grid-template-columns: auto 1fr auto;
-    }
     .dashboard-page {
-      width: 80%;
     }
   }
 `;

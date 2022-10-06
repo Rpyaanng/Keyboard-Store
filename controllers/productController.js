@@ -71,4 +71,31 @@ const getProducts = async (req, res) => {
   });
 };
 
-export { createProduct, deleteProduct, getProduct, getProducts, updateProduct };
+const getCategory = async (req, res) => {
+  // Access the provided 'page' and 'limt' query parameters
+  const page = req.query.page;
+  const limit = req.query.limit;
+  console.log(limit);
+
+  // Find all products
+  const products = await Product.find({
+    categories: req.params.category,
+  })
+    .limit(limit)
+    .skip(page * limit);
+
+  console.log(products);
+  // Return the articles to the rendering engine
+  res.status(StatusCodes.OK).json({
+    products,
+  });
+};
+
+export {
+  createProduct,
+  deleteProduct,
+  getProduct,
+  getCategory,
+  getProducts,
+  updateProduct,
+};

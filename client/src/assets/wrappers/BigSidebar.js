@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.aside`
   display: none;
+  z-index: 2;
+  box-shadow: var(--shadow-1);
 
   @media (min-width: 992px) {
     display: block;
@@ -41,12 +43,13 @@ const Wrapper = styled.aside`
     }
 
     header {
+      justify-content: center;
       height: var(--nav-height);
       display: flex;
     }
     .toggle-btn {
       background: transparent;
-      border-color: transparent;
+      border: none;
       font-size: 1.75rem;
       color: var(--primary-500);
       cursor: pointer;
@@ -71,6 +74,7 @@ const Wrapper = styled.aside`
       font-size: 1rem;
       width: 0;
       opacity: 0;
+      transition: var(--transition);
     }
 
     .show-sidebar .logo-text {

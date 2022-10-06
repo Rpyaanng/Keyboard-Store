@@ -10,8 +10,7 @@ import {
 const SharedLayout = () => {
   return (
     <Wrapper>
-      <main className="dashboard">
-        <SmallSidebar />
+      <div className="container">
         <BigSidebar />
         <div className="main-content">
           <Navbar />
@@ -21,7 +20,7 @@ const SharedLayout = () => {
           </div>
         </div>
         <ShoppingCart />
-      </main>
+      </div>
     </Wrapper>
   );
 };

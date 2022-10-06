@@ -8,7 +8,7 @@ const Wrapper = styled.nav`
   top: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
+  width: 100vw;
   .logo {
     display: flex;
     align-items: center;
@@ -126,6 +126,7 @@ const Wrapper = styled.nav`
 
   @media (min-width: 992px) {
     position: sticky;
+    width: unset;
     top: 0;
     height: var(--nav-height);
 
@@ -164,6 +165,9 @@ const Wrapper = styled.nav`
     }
     .right {
       display: flex;
+    }
+    .shopping-cart-notif {
+      font-size: 1rem;
     }
   }
 `;

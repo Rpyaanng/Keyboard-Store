@@ -28,7 +28,10 @@ const ShoppingCart = () => {
       >
         <div className="content">
           <div className="top">
-            <h4>Shopping Cart</h4>
+            <span>
+              Subtotal: <span className="subTotal">${total.toFixed(2)}</span>
+            </span>
+            <button className="btn primary checkout">Checkout</button>
           </div>
           <div className="middle">
             <ul>
@@ -37,10 +40,7 @@ const ShoppingCart = () => {
               })}
             </ul>
           </div>
-          <div className="bottom">
-            <h3>Total: ${total}</h3>
-            <button className="btn primary checkout">Checkout</button>
-          </div>
+          <div className="bottom"></div>
         </div>
       </div>
     </Wrapper>

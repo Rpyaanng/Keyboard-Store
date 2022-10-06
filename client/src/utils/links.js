@@ -15,25 +15,25 @@ const links = [
     id: 2,
     text: "Keyboards",
     icon: <ImKeyboard />,
-    path: "/search/keyboards",
+    path: "/category/keyboards",
   },
   {
     id: 3,
     text: "Switches",
     icon: <SwitchIcon />,
-    path: "/search/switch",
+    path: "/category/switch",
   },
   {
     id: 4,
     text: "Deskmats",
     icon: <BiRectangle />,
-    path: "/search/deskmats",
+    path: "/category/deskmats",
   },
   {
     id: 5,
     text: "Mice",
     icon: <BsMouse2 />,
-    path: "/search/mice",
+    path: "/category/mice",
   },
 ];
 export default links;

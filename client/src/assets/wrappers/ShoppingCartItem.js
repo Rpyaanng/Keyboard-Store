@@ -1,86 +1,71 @@
 import styled from "styled-components";
-
 const Wrapper = styled.div`
-  display: none;
-  border: 1px whitesmoke;
-  @media (min-width: 992px) {
-    display: block;
-    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: var(--shopping-width);
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 
+  padding: 0.5em;
+
+  .options {
+    margin-top: 12px;
+    display: flex;
+    align-content: center;
+    font-size: 0.75em;
+  }
+
+  .delete {
+    background: none;
+    border: none;
+    color: red;
+  }
+
+  .quantity {
+    padding: 5px;
+  }
+
+  .details {
+    display: flex;
+    justify-content: right;
+  }
+
+  @media (min-width: 992px) {
     .body {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: max-content 1fr;
     }
+
+    .content-box {
+      height: 60px;
+      flex-direction: column;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-justify-content: flex-start;
+      justify-content: flex-start;
+      -webkit-align-content: space-between;
+      align-content: space-between;
+      text-align: left;
+    }
+
     .thumbnail {
-      margin-left: 0.5rem;
-      margin-right: 1rem;
+      margin-right: 0.25rem;
     }
-    .product-image {
-      border: 1px solid #ddd; /* Gray border */
-      border-radius: 4px; /* Rounded border */
-      width: 48px; /* Set a small width */
-      height: 48px; /* Set a small width */
-    }
+
     .product-name {
-      margin: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
+
     .quantity-input {
       background: none;
       color: var(--textColor);
       width: 3rem;
       margin-left: 1rem;
     }
+
     .show-sidebar {
       margin-right: 0;
-    }
-    header {
-      padding-left: 0;
-      width: 100%;
-      height: 6rem;
-      display: flex;
-    }
-    .nav-links {
-      padding-top: 2rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .nav-link {
-      display: flex;
-      align-items: center;
-      color: var(--grey-500);
-      padding: 1rem 0;
-      padding-left: 2.5rem;
-      text-transform: capitalize;
-      transition: var(--transition);
-    }
-    .nav-link:hover {
-      background: var(--grey-50);
-      padding-left: 3rem;
-      color: var(--grey-900);
-    }
-    .nav-link:hover .icon {
-      color: var(--primary-500);
-    }
-    .icon {
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      display: grid;
-      place-items: center;
-      transition: var(--transition);
-    }
-
-    .options {
-      display: flex;
-      justify-content: right;
-    }
-
-    .options button {
-      background: none;
-      border: none;
-    }
-
-    .delete {
-      color: red;
     }
   }
 `;
