@@ -4,6 +4,7 @@ const Wrapper = styled.aside`
   display: none;
   overflow: hidden;
   z-index: 3;
+
   .subTotal {
     color: var(--primary-500);
   }
@@ -51,6 +52,7 @@ const Wrapper = styled.aside`
       flex-grow: 1;
       overflow-y: auto;
       overflow-x: hidden;
+      background: var(--ui-color-2);
     }
 
     header {

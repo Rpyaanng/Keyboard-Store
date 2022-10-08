@@ -3,10 +3,11 @@ import NavLinks from "./NavLinks";
 import Logo from "../components/Logo";
 import Wrapper from "../assets/wrappers/BigSidebar";
 import { MdFormatAlignLeft } from "react-icons/md";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const BigSideBar = () => {
-  const { setShowSidebar, showSidebar, user, logoutUser } = useAppContext();
-
+  const { setShowSidebar, showSidebar, isLightMode, toggleLightMode } =
+    useAppContext();
   return (
     <Wrapper>
       <div
@@ -30,7 +31,11 @@ const BigSideBar = () => {
           <div className="middle">
             <NavLinks />
           </div>
-          <div className="bottom"></div>
+          <div className="bottom">
+            <button className="theme btn" onClick={() => toggleLightMode()}>
+              {isLightMode ? <FaSun /> : <FaMoon />}
+            </button>
+          </div>
         </div>
       </div>
     </Wrapper>

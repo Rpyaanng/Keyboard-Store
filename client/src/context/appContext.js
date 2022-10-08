@@ -17,13 +17,14 @@ import {
   SET_SHOPPINGCART_ITEM,
   DELETE_SHOPPINGCART_ITEM,
   SET_ISMAINPAGE,
+  TOGGLE_LIGHTMODE,
 } from "./action";
 
 const token = localStorage.getItem("token");
 const user = localStorage.getItem("user");
 const shoppingCart = localStorage.getItem("shoppingCart");
 const showShoppingCart = localStorage.getItem("showShoppingCart");
-console.log(JSON.parse(showShoppingCart) === true);
+const isLightMode = window.localStorage.getItem("isLightMode");
 
 export const initialState = {
   isLoading: false,
@@ -38,6 +39,7 @@ export const initialState = {
   showShoppingCart: showShoppingCart ? JSON.parse(showShoppingCart) : false,
   shoppingCart: shoppingCart ? JSON.parse(shoppingCart) : {},
   isMainPage: false,
+  isLightMode: isLightMode ? JSON.parse(isLightMode) : false,
 };
 
 const AppContext = React.createContext();
@@ -181,6 +183,14 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const toggleLightMode = () => {
+    console.log("toggling");
+    localStorage.setItem("isLightMode", !state.isLightMode);
+    dispatch({
+      type: TOGGLE_LIGHTMODE,
+    });
+  };
+
   const setMainPage = (bool) => {
     dispatch({
       type: SET_ISMAINPAGE,
@@ -202,6 +212,7 @@ const AppProvider = ({ children }) => {
         setShoppingCartItem,
         deleteShoppingCartItem,
         setMainPage,
+        toggleLightMode,
       }}
     >
       {children}

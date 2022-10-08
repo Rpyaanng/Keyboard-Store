@@ -24,7 +24,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <Wrapper>
-      <div className="nav-center">
+      <div className="nav-center ui-1">
         <div className="left">
           <div className="left-1">
             <button

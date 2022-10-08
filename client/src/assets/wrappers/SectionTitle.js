@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  background-color: white;
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
 

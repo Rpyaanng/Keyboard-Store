@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.nav`
   display: flex;
-  background: var(--ui-color);
   height: var(--nav-height-mobile);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   width: 100vw;
+  box-shadow: var(--shadow-bottom);
+  background: var(--ui-color);
   .logo {
     display: flex;
     align-items: center;
@@ -160,7 +161,6 @@ const Wrapper = styled.nav`
       display: block;
     }
     .main-input {
-      width: 50rem;
       height: 3rem;
     }
     .right {

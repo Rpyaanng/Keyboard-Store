@@ -14,6 +14,7 @@ import {
   SET_SHOPPINGCART_ITEM,
   DELETE_SHOPPINGCART_ITEM,
   SET_ISMAINPAGE,
+  TOGGLE_LIGHTMODE,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -121,6 +122,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         isMainPage: action.payload.bool,
+      };
+    case TOGGLE_LIGHTMODE:
+      return {
+        ...state,
+        isLightMode: !state.isLightMode,
       };
     default:
       throw new Error(`no such action : ${action.type}`);

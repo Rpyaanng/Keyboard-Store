@@ -13,7 +13,8 @@ import {
 import ScrollToTop from "./utils/ScrollToTop";
 import CheckMainPage from "./utils/CheckMainPage";
 
-function App() {
+
+const App = () => {
   return (
     <BrowserRouter>
       <ScrollToTop>
@@ -43,6 +44,6 @@ function App() {
       </ScrollToTop>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -7,20 +7,30 @@ import {
   ShoppingCart,
   Footer,
 } from "../../components";
+import { GlobalStyle } from "../../components/GlobalStyle";
+import { lightTheme, darkTheme } from "../../components/Themes";
+import { useAppContext } from "../../context/appContext";
+import { useEffect } from "react";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+
 const SharedLayout = () => {
+  const { isLightMode } = useAppContext();
   return (
     <Wrapper>
-      <div className="container">
-        <BigSidebar />
-        <div className="main-content">
-          <Navbar />
-          <div>
-            <Outlet />
-            <Footer />
+      <ThemeProvider theme={isLightMode ? lightTheme : darkTheme}>
+        <div className="container">
+          <BigSidebar />
+          <div className="main-content">
+            <Navbar />
+            <div>
+              <Outlet />
+              <Footer />
+            </div>
           </div>
+          <ShoppingCart />
         </div>
-        <ShoppingCart />
-      </div>
+      </ThemeProvider>
     </Wrapper>
   );
 };
