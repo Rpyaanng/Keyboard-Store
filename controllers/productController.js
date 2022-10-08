@@ -61,33 +61,40 @@ const getProducts = async (req, res) => {
   const products = await Product.find({
     hidden: "false",
   })
-    .batchSize(limit)
-    .skip(page * limit);
-
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .exec();
+  const count = await Product.countDocuments();
   console.log(products);
   // Return the articles to the rendering engine
   res.status(StatusCodes.OK).json({
     products,
+    totalPages: Math.ceil(count / limit),
+    currentPage: page,
   });
 };
 
 const getCategory = async (req, res) => {
   // Access the provided 'page' and 'limt' query parameters
-  const page = req.query.page;
-  const limit = req.query.limit;
+  const { page = 1, limit = 1 } = req.query;
   console.log(limit);
 
   // Find all products
   const products = await Product.find({
     categories: req.params.category,
   })
-    .limit(limit)
-    .skip(page * limit);
-
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .exec();
+  const count = await Product.countDocuments({
+    categories: req.params.category,
+  });
   console.log(products);
   // Return the articles to the rendering engine
   res.status(StatusCodes.OK).json({
     products,
+    totalPages: Math.ceil(count / limit),
+    currentPage: page,
   });
 };
 
