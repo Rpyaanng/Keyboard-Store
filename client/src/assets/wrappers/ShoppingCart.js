@@ -40,6 +40,7 @@ const Wrapper = styled.aside`
       box-shadow: var(--shadow-1);
     }
     .top {
+      background: ${(props) => props.theme.uiColor};
       padding: 1em;
       text-align: center;
       border-bottom: 1px solid var(--grey-50);

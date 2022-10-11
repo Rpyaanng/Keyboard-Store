@@ -19,7 +19,7 @@ html {
   --primary-200: #b2d784;
   --primary-300: #a8d274;
   --primary-400: #98b971;
-  --primary-500: #9dcd65;
+  --primary-500: #92c15d;
   --primary-600: #82b647;
   --primary-700: #738d0d;
   --primary-800: #62780a;
@@ -41,7 +41,7 @@ html {
   --white: #fff;
   --blue-light: #01BAEF;
   --red-light: #f8d7da;
-  --red-dark: #842029;
+  --red-dark: #db2f3e;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
@@ -49,16 +49,19 @@ html {
   --star-border: #e27f3c;
 
   /* fonts  */
-  --headingFont: 'Hubballi', cursive;
+  --logo-font: 'Hubballi', cursive;
+  --headingFont: 'Montserrat', sans-serif;
   --bodyFont: 'Montserrat', sans-serif;
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   --line-height: 1.25;
 
   /* rest of the vars */
-  --ui-color: #ffffff;
-  --ui-color-2: #f6f6e7; 
+  --ui-dark-1: #212121;
+  --ui-dark-2: #181818;
 
+ 
+  
   --backgroundColor: var(--ui-color);
   --textColor: var(--grey-900);
   --borderRadius: 1rem;
@@ -68,7 +71,7 @@ html {
   --fixed-width: 500px;
   --fluid-width: 90vw;
   --breakpoint-lg: 992px;
-  --nav-height: 6rem;
+  --nav-height: 4rem;
   --nav-height-mobile: 4rem;
   --shopping-width: 250px;
   /* box shadow*/
@@ -82,14 +85,20 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+/* .ui-1{
+  background: var(--white);
+}
+
+.ui-2{
+  background: #f6f6e7;
+} */
+
 body {
-  /* background-image: url("./assets/images/Background.png"); */
-  /* background-size: cover; */
+
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: var(--line-height);
-  /* color: var(--textColor); */
-  background: var(--ui-color-2);
+
 }
 
 p {
@@ -163,7 +172,7 @@ ul {
 hr {
   height: 1px;
   border: none;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, rgb(205, 205, 205)));
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, rgba(62, 62, 62, 0.521)));
 }
 
 section + section {
@@ -180,8 +189,8 @@ section + section {
 }
 
 .side-margin {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
 
 .side-margin-web {
@@ -286,8 +295,9 @@ section + section {
   text-transform: capitalize;
   display: inline-block;
 }
+
 .btn:hover {
-  background: var(--primary-700);
+  background: var(--primary-700) !important;
   box-shadow: var(--shadow-3);
 }
 .btn-hipster {

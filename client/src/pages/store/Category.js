@@ -27,9 +27,9 @@ const Category = () => {
   }, [category]);
 
   return categories[category] ? (
-    <Wrapper className="side-padding">
+    <Wrapper className="side-margin ui-1">
       <SectionTitle title={category} />
-      <div className="products">
+      <div className="products side-margin-web">
         {products.map((product) => (
           <ProductListing
             key={product._id}

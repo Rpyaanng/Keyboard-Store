@@ -30,7 +30,7 @@ const ShoppingCart = () => {
         }
       >
         <div className="content">
-          <div className="top">
+          <div className="top ui-1">
             <span>
               Subtotal: <span className="subTotal">${total.toFixed(2)}</span>
             </span>

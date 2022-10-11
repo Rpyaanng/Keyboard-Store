@@ -8,7 +8,7 @@ const Wrapper = styled.nav`
   z-index: 3;
   width: 100vw;
   box-shadow: var(--shadow-bottom);
-  background: var(--ui-color);
+  background: ${(props) => props.theme.uiColor};
 
   .nav-center {
     display: flex;
@@ -155,7 +155,6 @@ const Wrapper = styled.nav`
       display: block;
     }
     .main-input {
-      height: 3rem;
     }
     .right {
       display: flex;

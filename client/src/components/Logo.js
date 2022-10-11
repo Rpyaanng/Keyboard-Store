@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Wrapper>
       <ReactLogo className="logo" />
-      <h1 className="text">MATCHA_KEYS</h1>
+      <h3 className="text">MATCHA_KEYS</h3>
     </Wrapper>
   );
 };

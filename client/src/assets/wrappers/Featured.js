@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  margin: 1rem;
   margin-top: 5rem;
-  padding: 1rem;
-  background: var(--ui-color);
+  padding: 1rem 0rem 1rem 0rem;
   border-radius: var(--borderRadius);
+  background: ${(props) => props.theme.uiColor};
+
   .carousel-root {
     display: grid;
     grid-template-columns: auto 1fr;
+    overflow: hidden;
   }
 
   .featured-img {
@@ -35,8 +36,11 @@ const Wrapper = styled.section`
   .carousel.thumb {
     border: none;
   }
+
+  .carousel-slider {
+  }
   @media (min-width: 992px) {
-    margin: 2.5rem;
+    margin: 2rem 3rem 2rem 3rem;
     .products {
     }
     .thumb {

@@ -4,11 +4,12 @@ const Wrapper = styled.aside`
   display: none;
   z-index: 2;
   box-shadow: var(--shadow-1);
+  background: ${(props) => props.theme.uiColor};
 
   .sidebar-container {
     height: 100%;
     margin-left: 0;
-    width: 90px;
+    width: 70px;
     transition: var(--transition) 0.1ms;
   }
 
@@ -74,7 +75,7 @@ const Wrapper = styled.aside`
   }
 
   .show-sidebar .logo-text {
-    width: 4rem;
+    width: 3rem;
 
     transition: var(--transition) 0.1ms;
     overflow: visible;
@@ -84,6 +85,7 @@ const Wrapper = styled.aside`
   .nav-link .icon {
     width: -webkit-fill-available;
     justify-content: center;
+    margin: 0;
   }
 
   .nav-link:hover {
@@ -100,6 +102,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     transition: var(--transition);
+    color: ${(props) => props.theme.text};
   }
   .theme {
   }
@@ -108,7 +111,7 @@ const Wrapper = styled.aside`
     color: var(--grey-900);
   }
   .active .icon {
-    color: var(--primary-500);
+    color: ${(props) => props.theme.primary};
   }
   .bottom {
     margin-right: auto;

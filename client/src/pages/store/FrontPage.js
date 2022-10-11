@@ -5,10 +5,10 @@ const FrontPage = () => {
     document.title = "FrontPage";
   }, []);
   return (
-    <main className="">
+    <main>
       <Featured />
       <Recommended />
-      <div className="">
+      <div>
         <CategoryFeature title={"keyboards"} category={"keyboards"} />
         <CategoryFeature title={"switches"} category={"switches"} />
         <CategoryFeature title={"deskmats"} category={"deskmats"} />

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  background: var(--ui-color);
   border-radius: var(--borderRadius);
+  background: ${(props) => props.theme.uiColor};
   .products {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

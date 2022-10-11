@@ -1,11 +1,17 @@
-import icon from "./switch-icon.svg";
+import { ReactComponent as Switch } from "./switch-icon.svg";
 import styled from "styled-components";
 const SwitchIcon = () => {
-  return <Wrapper src={icon}></Wrapper>;
+  return (
+    <Wrapper>
+      <Switch />
+    </Wrapper>
+  );
 };
 export default SwitchIcon;
 
-const Wrapper = styled.img`
-  width: 28px;
-  height: 28px;
+const Wrapper = styled.span`
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 `;

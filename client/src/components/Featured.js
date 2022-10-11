@@ -15,7 +15,7 @@ const Featured = () => {
         showThumbs={true}
         autoPlay={true}
         infiniteLoop={true}
-        thumbWidth={300}
+        thumbWidth={200}
         interval={8000}
       >
         <div className="featured-img">

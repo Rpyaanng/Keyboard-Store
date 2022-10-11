@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 const Wrapper = styled.main`
   overflow: hidden; // Keeps the navbar from scrolling
+  background: ${(props) => props.theme.uiColor2};
+  color: ${(props) => props.theme.text};
+
+  .btn {
+    background: ${(props) => props.theme.primary};
+  }
+
   .container {
     max-width: 100vw;
     display: grid;
@@ -17,6 +24,7 @@ const Wrapper = styled.main`
   .middle-content {
     margin-top: var(--nav-height-mobile);
     min-height: 80vh;
+    background: ${(props) => props.theme.uiColor1};
   }
 
   .dashboard-page {
@@ -32,6 +40,10 @@ const Wrapper = styled.main`
     }
 
     .dashboard-page {
+    }
+
+    .middle-content {
+      margin-top: 0;
     }
   }
 `;

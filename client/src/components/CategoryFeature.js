@@ -27,7 +27,7 @@ const CategoryFeature = ({ title, category }) => {
     getProducts();
   }, []);
   return (
-    <Wrapper className="side-margin">
+    <Wrapper className="side-margin ui-1">
       <SectionTitle title={`${title}`} />
       <div className="products side-margin-web">
         {products.map((product) => (

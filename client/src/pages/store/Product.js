@@ -1,4 +1,4 @@
-import Wrapper from "../../assets/wrappers/CreateProduct";
+import Wrapper from "../../assets/wrappers/Product";
 import { useAppContext } from "../../context/appContext";
 import Axios from "axios";
 import { Carousel } from "react-responsive-carousel";
@@ -12,7 +12,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     name: "",
-    price: "",
+    price: 0,
     images: [],
     rating: 0,
     quantity: 0,
@@ -91,7 +91,7 @@ const Product = () => {
               Add to Cart
             </button>
             <hr></hr>
-            <p className="price">${product.price}</p>
+            <p className="price">${product.price.toFixed(2)}</p>
           </form>
           <hr></hr>
         </div>

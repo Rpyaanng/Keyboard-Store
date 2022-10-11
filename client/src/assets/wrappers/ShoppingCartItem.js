@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   }
 
   .price {
-    color: black;
   }
 
   @media (min-width: 992px) {

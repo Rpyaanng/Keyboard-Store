@@ -9,10 +9,12 @@ const Wrapper = styled.div`
 
   .logo {
     max-width: 100%;
-    width: 42px;
+    height: min-content;
+    width: 32px;
     fill: var(--primary-500);
   }
   .text {
+    font-family: var(--logo-font);
     margin: 0;
   }
 `;

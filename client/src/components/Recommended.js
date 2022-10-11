@@ -17,7 +17,7 @@ const Recommended = () => {
   }, []);
 
   return (
-    <Wrapper className="side-margin">
+    <Wrapper className="side-margin ui-1">
       <div>
         <SectionTitle title="Recommended" />
         <div className="products side-margin-web">
