@@ -6,7 +6,7 @@ const Wrapper = styled.aside`
   z-index: 3;
 
   .subTotal {
-    color: var(--primary-500);
+    color: var(--red-dark);
   }
 
   .checkout {
@@ -42,7 +42,7 @@ const Wrapper = styled.aside`
     .top {
       padding: 1em;
       text-align: center;
-      box-shadow: var(--shadow-1);
+      border-bottom: 1px solid var(--grey-50);
     }
     .top div {
       text-align: center;
@@ -53,6 +53,12 @@ const Wrapper = styled.aside`
       overflow-y: auto;
       overflow-x: hidden;
       background: var(--ui-color-2);
+      scrollbar-width: none;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .middle::-webkit-scrollbar {
+      display: none;
     }
 
     header {

@@ -3,7 +3,9 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   border-radius: var(--borderRadius);
   width: 100%;
-
+  .product-img {
+    background: var(--black);
+  }
   .header {
     margin: 1rem 0;
     background-color: var(--grey-100);
@@ -42,16 +44,25 @@ const Wrapper = styled.section`
   }
 
   .carousel .thumbs-wrapper {
-    margin: 0px;
+    margin: 1rem 0 0 0;
+    padding-left: 1rem;
     overflow: hidden;
+    background: var(--ui-color);
+    border-radius: var(--borderRadius);
   }
-  .name-input {
-    border: none;
-    color: var(--textColor);
+  .name {
+    font-weight: bold;
+    font-family: var(--body-font);
   }
   .price-input {
     color: var(--primary-500);
     border: none;
+  }
+
+  .form-div {
+    background: var(--ui-color);
+    border-radius: var(--borderRadius);
+    padding: 1rem;
   }
 
   .form {
@@ -131,6 +142,9 @@ const Wrapper = styled.section`
     max-height: 100%;
     max-width: 100%;
     height: 100%;
+  }
+
+  .thumbs-wrapper {
   }
 
   @media (min-width: 992px) {

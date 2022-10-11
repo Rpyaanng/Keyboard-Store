@@ -16,7 +16,7 @@ const ShoppingCartItem = ({ item }) => {
           <div className="content-box">
             <div className="product-name">{name}</div>
             <div className="details">
-              <span> ${(price * quantity).toFixed(2)}</span>
+              <span className="price"> ${(price * quantity).toFixed(2)}</span>
             </div>
           </div>
         </div>

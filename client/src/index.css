@@ -39,6 +39,7 @@ html {
   /* rest of the colors */
   --black: #222;
   --white: #fff;
+  --blue-light: #01BAEF;
   --red-light: #f8d7da;
   --red-dark: #842029;
   --green-light: #d1e7dd;
@@ -48,18 +49,19 @@ html {
   --star-border: #e27f3c;
 
   /* fonts  */
-  --headingFont: 'Montserrat', sans-serif;
+  --headingFont: 'Hubballi', cursive;
   --bodyFont: 'Montserrat', sans-serif;
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
+  --line-height: 1.25;
 
   /* rest of the vars */
   --ui-color: #ffffff;
-  --ui-color-2: #fcfcf4; 
+  --ui-color-2: #f6f6e7; 
 
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--ui-color);
   --textColor: var(--grey-900);
-  --borderRadius: 0.25rem;
+  --borderRadius: 1rem;
   --letterSpacing: 0;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
@@ -85,9 +87,9 @@ body {
   /* background-size: cover; */
   font-family: var(--bodyFont);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: var(--line-height);
   /* color: var(--textColor); */
-  background-image: linear-gradient(to top, rgba(26, 37, 28, 0) 90%, rgba(200, 200, 200, 0.29));
+  background: var(--ui-color-2);
 }
 
 p {
@@ -107,6 +109,7 @@ h5 {
   line-height: 1.3;
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
+
 }
 
 h1 {
@@ -136,6 +139,7 @@ small,
 }
 
 a {
+  color: unset;
   display: -webkit-box;
   text-decoration: none;
   letter-spacing: var(--letterSpacing);
@@ -150,18 +154,39 @@ button {
 button:disabled {
   cursor: not-allowed;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, rgb(205, 205, 205)));
+}
+
+section + section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .mobile-hidden{
   display: none;
 }
 
-.side-padding {
-  padding-left: 1rem;
-  padding-right: 3rem;
+.flex {
+  display: flex;
+}
+
+.side-margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.side-margin-web {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .img {
@@ -179,7 +204,6 @@ ul {
 }
 
 .thumbnail img {
-  
   position: absolute;
   left: 50%;
   top: 50%;
@@ -189,6 +213,7 @@ ul {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .thumbnail img.portrait {
   width: 100%;
   height: auto;
@@ -198,8 +223,8 @@ ul {
   position: relative;
   padding-top: 56.25%;
   overflow: hidden;
- 
-
+  border-radius: var(--borderRadius);
+  
 }
 
 .product-img img {
@@ -221,6 +246,28 @@ ul {
 .product-img img.portrait {
   width: 100%;
   height: auto;
+}
+
+.product-img-loading{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(211,211,211);
+  z-index: 44;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
+}
+
+.activity{
+  position: absolute;
+  left: -45%;
+  height: 100%;
+  width: 45%;
+  background-image: linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
+  background-image: -moz-linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
+  background-image: -webkit-linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
+  animation: loading 1s infinite;
+  z-index: 45;
 }
 
 /* buttons */
@@ -284,8 +331,8 @@ ul {
   color: var(--green-dark);
   background: var(--green-light);
 }
-/* form */
 
+/* form */
 .form {
   width: 90vw;
   max-width: var(--fixed-width);
@@ -416,11 +463,17 @@ ul {
   margin-left: 3rem;
 }
 
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  padding: 0;
-  margin: 0;
+
+
+
+
+@keyframes loading {
+  0%{
+    left: -45%;
+  }
+  100%{
+    left: 100%;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -437,8 +490,13 @@ ul {
     margin: 0 auto;
   }
 
-  .side-padding {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  .side-margin {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .side-margin-web {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }

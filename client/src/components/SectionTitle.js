@@ -3,7 +3,7 @@ import Wrapper from "../assets/wrappers/SectionTitle";
 
 const SectionTitle = ({ title }) => {
   return (
-    <Wrapper>
+    <Wrapper className="side-margin-web">
       <span>{title}</span>
     </Wrapper>
   );

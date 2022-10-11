@@ -3,7 +3,6 @@ const Wrapper = styled.div`
   display: block;
   width: var(--shopping-width);
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
-
   padding: 0.5em;
 
   .options {
@@ -21,6 +20,7 @@ const Wrapper = styled.div`
 
   .quantity {
     padding: 5px;
+    margin: 0;
   }
 
   .details {
@@ -28,10 +28,15 @@ const Wrapper = styled.div`
     justify-content: right;
   }
 
+  .price {
+    color: black;
+  }
+
   @media (min-width: 992px) {
     .body {
       display: grid;
       grid-template-columns: max-content 1fr;
+      height: 4rem;
     }
 
     .content-box {
@@ -55,13 +60,8 @@ const Wrapper = styled.div`
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
-    }
-
-    .quantity-input {
-      background: none;
-      color: var(--textColor);
-      width: 3rem;
-      margin-left: 1rem;
+      padding: 0;
+      height: calc(2em * var(--line-height));
     }
 
     .show-sidebar {

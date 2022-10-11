@@ -24,7 +24,10 @@ const SharedLayout = () => {
           <div className="main-content">
             <Navbar />
             <div>
-              <Outlet />
+              <div className="middle-content">
+                <Outlet />
+              </div>
+
               <Footer />
             </div>
           </div>

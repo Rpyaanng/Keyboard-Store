@@ -5,16 +5,11 @@ const Wrapper = styled.nav`
   height: var(--nav-height-mobile);
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 3;
   width: 100vw;
   box-shadow: var(--shadow-bottom);
   background: var(--ui-color);
-  .logo {
-    display: flex;
-    align-items: center;
-    width: 250px;
-  }
+
   .nav-center {
     display: flex;
     flex-grow: 1;
@@ -126,9 +121,8 @@ const Wrapper = styled.nav`
   }
 
   @media (min-width: 992px) {
-    position: sticky;
     width: unset;
-    top: 0;
+    position: sticky;
     height: var(--nav-height);
 
     .left-1 {

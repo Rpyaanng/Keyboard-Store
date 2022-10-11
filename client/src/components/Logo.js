@@ -1,14 +1,12 @@
 import React from "react";
-import logo from "../assets/images/logo.svg";
+import { ReactComponent as ReactLogo } from "../assets/images/logo.svg";
 import Wrapper from "../assets/wrappers/Logo";
-import { NavLink } from "react-router-dom";
 
 const Logo = () => {
   return (
     <Wrapper>
-      <NavLink to="/">
-        <img src={logo} alt="KeyboardStore" className="logo" />
-      </NavLink>
+      <ReactLogo className="logo" />
+      <h1 className="text">MATCHA_KEYS</h1>
     </Wrapper>
   );
 };

@@ -106,6 +106,7 @@ const reducer = (state, action) => {
           ...state.shoppingCart,
           [action.payload.id]: action.payload.object,
         },
+        showShoppingCart: true,
       };
     case DELETE_SHOPPINGCART_ITEM:
       return {

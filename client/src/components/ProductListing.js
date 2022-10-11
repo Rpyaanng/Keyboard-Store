@@ -1,8 +1,9 @@
 import Wrapper from "../assets/wrappers/ProductListing";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
 
-const ProductListing = ({ product }) => {
+const ProductListing = ({ product, isLoading }) => {
   const { _id, name, description, price, rating, images, numRatings } = product;
   const navigate = useNavigate();
 
@@ -16,9 +17,16 @@ const ProductListing = ({ product }) => {
     >
       <div className="product-listing">
         <div>
-          <div className="product-img">
-            <img src={images[0]} alt="product" />
-          </div>
+          {isLoading ? (
+            <div className="product-img-loading">
+              <div className="activity"></div>
+            </div>
+          ) : (
+            <div className="product-img">
+              <img src={images[0]} alt="product" />
+            </div>
+          )}
+
           <div className="main-info">
             <span className="name">{name}</span>
             <div className="rating">

@@ -10,6 +10,8 @@ import Recommended from "./Recommended";
 import ShoppingCartItem from "./ShoppingCartItem";
 import SectionTitle from "./SectionTitle";
 import Footer from "./Footer";
+import CategoryFeature from "./CategoryFeature";
+import ProductListing from "./ProductListing";
 export {
   SectionTitle,
   ShoppingCartItem,
@@ -23,4 +25,6 @@ export {
   Featured,
   Recommended,
   Footer,
+  CategoryFeature,
+  ProductListing,
 };

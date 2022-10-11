@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.main`
+  overflow: hidden; // Keeps the navbar from scrolling
   .container {
     max-width: 100vw;
     display: grid;
@@ -10,7 +11,12 @@ const Wrapper = styled.main`
   }
 
   .main-content {
+    max-width: 100vw;
+  }
+
+  .middle-content {
     margin-top: var(--nav-height-mobile);
+    min-height: 80vh;
   }
 
   .dashboard-page {

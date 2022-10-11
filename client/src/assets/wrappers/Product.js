@@ -6,6 +6,14 @@ const Wrapper = styled.div`
 
   .card-img {
     overflow: hidden;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  .card-img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
   }
 
   @media (min-width: 992px) {

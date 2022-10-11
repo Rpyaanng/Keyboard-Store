@@ -28,6 +28,7 @@ const Product = () => {
     const response = await Axios.get(`/api/v1/products/${id}`);
     const { product } = response.data;
     setProduct(product);
+    document.title = product.name;
   };
 
   useEffect(() => {
@@ -48,9 +49,9 @@ const Product = () => {
             })}
           </Carousel>
         </div>
-        <div>
+        <div className="form-div">
           <form className="">
-            <h4 className="name">{product.name}</h4>
+            <h3 className="name">{product.name}</h3>
 
             <div className="rating">
               {Array(product.rating)

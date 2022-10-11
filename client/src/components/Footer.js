@@ -11,9 +11,9 @@ import {
 const Footer = () => {
   return (
     <Wrapper>
-      <div className="side-padding">
+      <div className="side-margin">
         <Logo />
-        <div className="content side-padding">
+        <div className="content side-margin">
           <div>
             <h4>Contact Information:</h4>
             <ul>

@@ -7,10 +7,9 @@ const Recommended = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
-    const response = await Axios.get("/api/v1/products");
+    const response = await Axios.get("/api/v1/products?limit=4");
     const { products } = response.data;
     setProducts(products);
-    console.log(products);
   };
 
   useEffect(() => {
@@ -18,10 +17,10 @@ const Recommended = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <div className="side-padding">
+    <Wrapper className="side-margin">
+      <div>
         <SectionTitle title="Recommended" />
-        <div className="products">
+        <div className="products side-margin-web">
           {products.map((product) => (
             <ProductListing
               key={product._id}
@@ -29,6 +28,7 @@ const Recommended = () => {
             ></ProductListing>
           ))}
         </div>
+        <hr></hr>
       </div>
     </Wrapper>
   );

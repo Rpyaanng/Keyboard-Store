@@ -4,10 +4,13 @@ import Logo from "./Logo";
 import ShoppingCartItem from "./ShoppingCartItem";
 import Wrapper from "../assets/wrappers/ShoppingCart";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
   const { showShoppingCart, shoppingCart } = useAppContext();
   const [total, setTotal] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     let runningTotal = 0;
@@ -31,14 +34,23 @@ const ShoppingCart = () => {
             <span>
               Subtotal: <span className="subTotal">${total.toFixed(2)}</span>
             </span>
-            <button className="btn primary checkout">Checkout</button>
+
+            <button
+              className="btn primary checkout"
+              onClick={() => navigate("/checkout")}
+            >
+              Checkout
+            </button>
           </div>
           <div className="middle">
-            <ul>
-              {Object.entries(shoppingCart).map(([key, values]) => {
-                return <ShoppingCartItem key={key} item={values} />;
-              })}
-            </ul>
+            {Object.entries(shoppingCart).map(([key, values]) => {
+              return (
+                <div>
+                  <ShoppingCartItem key={key} item={values} />
+                  <hr />
+                </div>
+              );
+            })}
           </div>
           <div className="bottom"></div>
         </div>

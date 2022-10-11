@@ -90,6 +90,7 @@ const getCategory = async (req, res) => {
     categories: req.params.category,
   });
   console.log(products);
+
   // Return the articles to the rendering engine
   res.status(StatusCodes.OK).json({
     products,

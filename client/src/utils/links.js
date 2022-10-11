@@ -21,7 +21,7 @@ const links = [
     id: 3,
     text: "Switches",
     icon: <SwitchIcon />,
-    path: "/category/switch",
+    path: "/category/switches",
   },
   {
     id: 4,
