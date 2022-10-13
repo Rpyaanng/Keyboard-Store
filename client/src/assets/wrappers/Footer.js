@@ -6,14 +6,15 @@ const Wrapper = styled.footer`
   bottom: 0px;
 
   .logo {
-    fill: ${(props) => props.theme.text};
+    /* fill: ${(props) => props.theme.text}; */
   }
 
   @media (min-width: 992px) {
     display: block;
 
     margin-top: 2rem;
-    background: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.primary};
+    background: ${(props) => props.theme.uiColor};
     padding-top: 2rem;
     padding-bottom: 5rem;
     .icons svg {

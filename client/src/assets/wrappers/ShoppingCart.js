@@ -43,7 +43,7 @@ const Wrapper = styled.aside`
       background: ${(props) => props.theme.uiColor};
       padding: 1em;
       text-align: center;
-      border-bottom: 1px solid var(--grey-50);
+      border-bottom: 1px solid #a1a1a122;
     }
     .top div {
       text-align: center;

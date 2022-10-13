@@ -13,7 +13,7 @@ const Footer = () => {
     <Wrapper>
       <div className="side-margin">
         <Logo />
-        <div className="content side-margin">
+        <div className="content">
           <div>
             <h4>Contact Information:</h4>
             <ul>

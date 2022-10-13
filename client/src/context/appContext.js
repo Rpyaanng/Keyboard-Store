@@ -9,7 +9,7 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   SET_SHOWSIDEBAR,
-  TOGGLE_SHOPPINGCART,
+  SET_SHOPPINGCART,
   LOGOUT_USER,
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
@@ -55,6 +55,7 @@ const AppProvider = ({ children }) => {
   // Stores showShoppingCart on Save
   useEffect(() => {
     localStorage.setItem("showShoppingCart", state.showShoppingCart);
+    console.log(state.showShoppingCart);
   }, [state.showShoppingCart]);
 
   const authFetch = axios.create({
@@ -101,8 +102,8 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SET_SHOWSIDEBAR, payload: bool });
   };
 
-  const toggleShoppingCart = () => {
-    dispatch({ type: TOGGLE_SHOPPINGCART });
+  const setShoppingCart = (bool) => {
+    dispatch({ type: SET_SHOPPINGCART, payload: { bool: bool } });
   };
 
   const displayCustomAlert = (alertText, alertType) => {
@@ -207,7 +208,7 @@ const AppProvider = ({ children }) => {
         setupUser,
         logoutUser,
         updateUser,
-        toggleShoppingCart,
+        setShoppingCart,
         setShowSidebar,
         setShoppingCartItem,
         deleteShoppingCartItem,

@@ -76,6 +76,7 @@ const Wrapper = styled.aside`
 
   .show-sidebar .logo-text {
     width: 3rem;
+    margin-left: 1rem;
 
     transition: var(--transition) 0.1ms;
     overflow: visible;
@@ -90,7 +91,7 @@ const Wrapper = styled.aside`
 
   .nav-link:hover {
     background: var(--grey-50);
-    padding-left: 2.5rem;
+    padding-left: 1rem;
     color: var(--grey-900);
   }
   .nav-link:hover .icon {
@@ -101,8 +102,8 @@ const Wrapper = styled.aside`
     margin-right: 1rem;
     display: flex;
     align-items: center;
-    transition: var(--transition);
-    color: ${(props) => props.theme.text};
+
+    color: #a1a1a1;
   }
   .theme {
   }
@@ -110,8 +111,12 @@ const Wrapper = styled.aside`
   .active {
     color: var(--grey-900);
   }
+  .active {
+    background-color: ${(props) => props.theme.primary};
+  }
+
   .active .icon {
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.uiColor};
   }
   .bottom {
     margin-right: auto;
@@ -123,13 +128,23 @@ const Wrapper = styled.aside`
 
   .theme {
     margin: 0;
+    background-color: ${(props) => props.theme.uiColor};
+    box-shadow: var(--shadow-3);
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
   }
   .sidebar-btn {
   }
 
+  .theme {
+  }
+
   @media (min-width: 992px) {
     display: block;
-
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
   }

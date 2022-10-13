@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
-  const { showShoppingCart, shoppingCart } = useAppContext();
+  const { showShoppingCart, setShoppingCart, shoppingCart } = useAppContext();
   const [total, setTotal] = useState(0);
 
   const navigate = useNavigate();
@@ -37,7 +37,10 @@ const ShoppingCart = () => {
 
             <button
               className="btn primary checkout"
-              onClick={() => navigate("/checkout")}
+              onClick={() => {
+                navigate("/checkout");
+                setShoppingCart(false);
+              }}
             >
               Checkout
             </button>

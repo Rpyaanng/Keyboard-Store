@@ -1,7 +1,7 @@
 import {
   DISPLAY_ALERT,
   DISPLAY_CUSTOM_ALERT,
-  TOGGLE_SHOPPINGCART,
+  SET_SHOPPINGCART,
   SET_SHOWSIDEBAR,
   CLEAR_ALERT,
   SETUP_USER_BEGIN,
@@ -94,10 +94,10 @@ const reducer = (state, action) => {
         ...state,
         showSidebar: action.payload,
       };
-    case TOGGLE_SHOPPINGCART:
+    case SET_SHOPPINGCART:
       return {
         ...state,
-        showShoppingCart: !state.showShoppingCart,
+        showShoppingCart: action.payload.bool,
       };
     case SET_SHOPPINGCART_ITEM:
       return {

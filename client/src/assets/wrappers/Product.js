@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Wrapper = styled.section`
+const Wrapper = styled.main`
   border-radius: var(--borderRadius);
   width: 100%;
   .product-img {
-    background: var(--black);
+    background: var(--ui-dark-1);
   }
   .header {
     margin: 1rem 0;
@@ -47,7 +47,7 @@ const Wrapper = styled.section`
     margin: 1rem 0 1rem 0;
     padding-left: 1rem;
     overflow: hidden;
-    background: var(--ui-color);
+    background: ${(props) => props.theme.uiColor};
     border-radius: var(--borderRadius);
   }
   .name {
@@ -60,7 +60,7 @@ const Wrapper = styled.section`
   }
 
   .form-div {
-    background: var(--ui-color);
+    background: ${(props) => props.theme.uiColor};
     border-radius: var(--borderRadius);
     padding: 1em;
     margin-bottom: 1rem;
@@ -111,7 +111,10 @@ const Wrapper = styled.section`
     cursor: pointer;
     letter-spacing: var(--letterSpacing);
   }
-  .description-input {
+  .description {
+    border-radius: var(--borderRadius);
+    background: ${(props) => props.theme.uiColor};
+    padding: 1rem;
     border: none;
     width: 100%;
     overflow-y: auto;

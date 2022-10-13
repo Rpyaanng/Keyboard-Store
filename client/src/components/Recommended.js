@@ -17,10 +17,10 @@ const Recommended = () => {
   }, []);
 
   return (
-    <Wrapper className="side-margin ui-1">
-      <div>
+    <Wrapper>
+      <div className="section">
         <SectionTitle title="Recommended" />
-        <div className="products side-margin-web">
+        <div className="products">
           {products.map((product) => (
             <ProductListing
               key={product._id}
@@ -28,7 +28,6 @@ const Recommended = () => {
             ></ProductListing>
           ))}
         </div>
-        <hr></hr>
       </div>
     </Wrapper>
   );

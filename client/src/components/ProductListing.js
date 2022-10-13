@@ -3,11 +3,10 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
 
+
 const ProductListing = ({ product, isLoading }) => {
   const { _id, name, description, price, rating, images, numRatings } = product;
   const navigate = useNavigate();
-
-  console.log(product);
 
   return (
     <Wrapper
@@ -28,21 +27,31 @@ const ProductListing = ({ product, isLoading }) => {
           )}
 
           <div className="main-info">
-            <span className="name">{name}</span>
-            <div className="rating">
-              {Array(rating)
-                .fill()
-                .map((_, idx) => (
-                  <FaStar className="star" key={idx} />
-                ))}
-              {Array(5 - rating)
-                .fill()
-                .map((_, idx) => (
-                  <FaRegStar className="star" key={idx} />
-                ))}
-              <a>{numRatings ? `${numRatings} Ratings` : "No Ratings"}</a>
+            <div className="main-details">
+              <span className="name">{name}</span>
+              <div className="rating">
+                {Array(rating)
+                  .fill()
+                  .map((_, idx) => (
+                    <FaStar className="star" key={idx} />
+                  ))}
+                {Array(5 - rating)
+                  .fill()
+                  .map((_, idx) => (
+                    <FaRegStar className="star" key={idx} />
+                  ))}
+                <a>{numRatings ? `${numRatings} Ratings` : "No Ratings"}</a>
+              </div>
             </div>
-            <p className="price">${price.toFixed(2)}</p>
+
+            <span className="price">
+              <span className="cents">$</span>
+              <span className="dollar">{Math.floor(price)}</span>
+              <span className="cents">
+                {(price % 1).toFixed(2) * 100}
+                {(price % 1).toFixed(2) * 100 == 0 ? 0 : ""}
+              </span>
+            </span>
           </div>
         </div>
       </div>

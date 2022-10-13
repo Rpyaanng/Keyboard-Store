@@ -1,15 +1,10 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  margin-top: 5rem;
-  padding: 1rem 0rem 1rem 0rem;
-  border-radius: var(--borderRadius);
-  background: ${(props) => props.theme.uiColor};
-
+  margin-top: 1rem;
   .carousel-root {
     display: grid;
     grid-template-columns: auto 1fr;
-    overflow: hidden;
   }
 
   .featured-img {
@@ -40,7 +35,6 @@ const Wrapper = styled.section`
   .carousel-slider {
   }
   @media (min-width: 992px) {
-    margin: 2rem 3rem 2rem 3rem;
     .products {
     }
     .thumb {
@@ -57,12 +51,21 @@ const Wrapper = styled.section`
       display: flex;
       margin: 0;
       margin-left: 1rem;
+      border-radius: var(--borderRadius);
+      background: ${(props) => props.theme.uiColor};
+      /* box-shadow: var(--shadow-1); */
+      padding: 0.5rem;
     }
+
     .thumbs.animated {
       margin: 0.5rem;
       display: flex;
       flex-direction: column;
       transform: none !important;
+    }
+
+    .thumbs-wrapper button {
+      display: none;
     }
   }
 `;

@@ -33,7 +33,14 @@ const BigSideBar = () => {
           </div>
           <div className="bottom">
             <button className="theme btn" onClick={() => toggleLightMode()}>
-              {isLightMode ? <FaMoon style={{ fill: "#181818" }} /> : <FaSun />}
+              <div
+                className={
+                  isLightMode ? "rot-anim moon-anim" : "rot-anim sun-anim"
+                }
+              >
+                <FaMoon className="moon" />
+                <FaSun className="sun" />
+              </div>
             </button>
           </div>
         </div>

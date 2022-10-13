@@ -18,7 +18,6 @@ const Wrapper = styled.nav`
   }
 
   .btn-container {
-    display: none;
   }
 
   .left,
@@ -79,6 +78,7 @@ const Wrapper = styled.nav`
     gap: 0 0.5rem;
     position: relative;
     box-shadow: var(--shadow-2);
+    margin: 0;
   }
 
   .dropdown {
@@ -93,6 +93,7 @@ const Wrapper = styled.nav`
     visibility: hidden;
     border-radius: var(--borderRadius);
   }
+
   .show-dropdown {
     visibility: visible;
   }
@@ -113,11 +114,47 @@ const Wrapper = styled.nav`
   .back-arrow {
     background: none;
     border: none;
+    color: ${(props) => props.theme.text};
   }
 
   .main-input {
-    margin: 0 5vw;
     width: 100%;
+    max-width: 45rem;
+    background: ${(props) => props.theme.uiColor2};
+    border-bottom-left-radius: var(--borderRadius);
+    border-top-left-radius: var(--borderRadius);
+    border: ${(props) => props.theme.uiColor3} 1px solid;
+
+    padding: 0.5rem;
+    transition: var(--transition);
+    color: ${(props) => props.theme.text};
+  }
+
+  .search-div {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 100%;
+    max-width: 45rem;
+    width: 100%;
+  }
+
+  .main-input:focus {
+    /* margin-right: 1px; */
+
+    /* border-radius: ; */
+    outline: var(--blue-light) 1px solid;
+    z-index: 1;
+  }
+
+  .search {
+    display: none;
+    border-radius: 0;
+    border-bottom-right-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
+    border: 0;
+    width: 4rem;
+    color: ${(props) => props.theme.text};
+    background-color: ${(props) => props.theme.uiColor3};
   }
 
   @media (min-width: 992px) {
@@ -156,11 +193,18 @@ const Wrapper = styled.nav`
     }
     .main-input {
     }
+    .search-div {
+      margin-left: 5rem;
+      margin-right: 0;
+    }
     .right {
       display: flex;
     }
     .shopping-cart-notif {
       font-size: 1rem;
+    }
+    .search {
+      display: block;
     }
   }
 `;

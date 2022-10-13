@@ -9,11 +9,16 @@ const Wrapper = styled.main`
     background: ${(props) => props.theme.primary};
   }
 
+  .btn-invert {
+    background-color: ${(props) => props.theme.uiColor};
+    color: ${(props) => props.theme.text};
+  }
+
   .container {
     max-width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
 
@@ -23,7 +28,7 @@ const Wrapper = styled.main`
 
   .middle-content {
     margin-top: var(--nav-height-mobile);
-    min-height: 80vh;
+    min-height: calc(100vh - var(--nav-height-mobile));
     background: ${(props) => props.theme.uiColor1};
   }
 
@@ -44,6 +49,9 @@ const Wrapper = styled.main`
 
     .middle-content {
       margin-top: 0;
+      max-width: 1460px;
+      margin: 0 auto;
+      min-height: calc(100vh - var(--nav-height));
     }
   }
 `;

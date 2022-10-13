@@ -12,6 +12,7 @@ import SectionTitle from "./SectionTitle";
 import Footer from "./Footer";
 import CategoryFeature from "./CategoryFeature";
 import ProductListing from "./ProductListing";
+import CheckoutItem from "./CheckoutItem";
 export {
   SectionTitle,
   ShoppingCartItem,
@@ -27,4 +28,5 @@ export {
   Footer,
   CategoryFeature,
   ProductListing,
+  CheckoutItem,
 };

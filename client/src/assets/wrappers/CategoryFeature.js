@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  border-radius: var(--borderRadius);
-  background: ${(props) => props.theme.uiColor};
+  .section {
+    /* border-radius: var(--borderRadius);
+    background: ${(props) => props.theme.uiColor}; */
+    padding: 1rem;
+  }
+
   .products {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 1px;
-    gap: 1px;
+    row-gap: var(--product-gap-mobile);
+    gap: var(--product-gap-mobile);
   }
 
   .more {
@@ -21,18 +25,28 @@ const Wrapper = styled.section`
   }
 
   .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* color: white; */
+    padding: 0.5rem;
+  }
+
+  .centered p {
+    margin: 0;
+  }
+
+  .more-div {
+    border: ${(props) => props.theme.uiColor2} 1px solid;
+    box-shadow: var(--shadow-1);
+    background: ${(props) => props.theme.uiColor};
   }
 
   @media (min-width: 992px) {
     .products {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      row-gap: 1rem;
-      gap: 1rem;
+      row-gap: var(--product-gap);
+      gap: var(--product-gap);
     }
   }
 `;

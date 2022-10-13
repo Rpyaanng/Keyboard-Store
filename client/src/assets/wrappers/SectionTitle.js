@@ -2,17 +2,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-
-  justify-content: center;
+  justify-content: left;
   border-radius: var(--border-radius);
-  margin-bottom: 1rem;
 
   span {
     text-transform: capitalize;
-    margin: 0.5rem;
-    font-size: 2.5rem;
-    color: var(--primary-500);
-    font-weight: bold;
+    font-size: 1.25rem;
+    color: ${(props) => props.theme.primary};
+    font-weight: 300;
   }
 
   @media (min-width: 992px) {

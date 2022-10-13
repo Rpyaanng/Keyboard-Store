@@ -27,24 +27,35 @@ const CategoryFeature = ({ title, category }) => {
     getProducts();
   }, []);
   return (
-    <Wrapper className="side-margin ui-1">
-      <SectionTitle title={`${title}`} />
-      <div className="products side-margin-web">
-        {products.map((product) => (
-          <ProductListing
-            key={product._id}
-            product={product}
-            isLoading={isLoading}
-          ></ProductListing>
-        ))}
-        {products[0] && (
-          <div onClick={() => navigate(`/category/${category}`)}>
-            <div className="product-img more">
-              <img src={products[0].images[0]} className="more" alt="product" />
-              <div className="centered">Click For More</div>
+    <Wrapper>
+      <div className="section">
+        <SectionTitle title={`${title}`} />
+        <div className="products">
+          {products.map((product) => (
+            <ProductListing
+              key={product._id}
+              product={product}
+              isLoading={isLoading}
+            ></ProductListing>
+          ))}
+          {products[0] && (
+            <div
+              className="more-div"
+              onClick={() => navigate(`/category/${category}`)}
+            >
+              <div className="product-img more">
+                <img
+                  src={products[0].images[0]}
+                  className="more"
+                  alt="product"
+                />
+              </div>
+              <div className="centered">
+                <p>More {category}</p>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </Wrapper>
   );

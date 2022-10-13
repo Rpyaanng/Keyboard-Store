@@ -1,27 +1,39 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  .rating {
+  border-radius: var(--borderRadius);
+  border: ${(props) => props.theme.uiColor2} 1px solid;
+  box-shadow: var(--shadow-1);
+  background: ${(props) => props.theme.uiColor};
+
+  */ .rating {
     display: none;
+  }
+
+  .main-info {
+    padding: 0.5rem;
+  }
+
+  .main-details {
+    min-height: 3rem;
   }
 
   .name {
     display: -webkit-box;
     max-width: 400px;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .rating {
+    display: none;
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .price {
-    color: var(--red-dark);
-    margin: 0;
   }
 
   .imgContainer {
