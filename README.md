@@ -1,6 +1,6 @@
 # Keyboard-Store
 
-![](https://i.imgur.com/kCJ3dcB.png)
+![](https://imgur.com/a/A3iMmLZ)
 
 This project is a e-commerce store that specializes in the sale of keyboards created with the MERN Stack
 
