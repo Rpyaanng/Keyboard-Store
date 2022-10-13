@@ -79,8 +79,8 @@ const Wrapper = styled.main`
   }
 
   .rating {
-    color: var(--yellow);
-    fill: var(--yellow);
+    margin: 1rem 0;
+    font-size: 1.125rem;
   }
 
   p {
@@ -125,6 +125,10 @@ const Wrapper = styled.main`
     resize: none;
     min-height: 40px;
     line-height: 20px;
+  }
+
+  .checkout {
+    border-radius: 1rem;
   }
 
   .description-input[contenteditable]:empty::before {

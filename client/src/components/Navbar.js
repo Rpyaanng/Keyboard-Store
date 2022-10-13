@@ -1,9 +1,9 @@
 import Wrapper from "../assets/wrappers/Navbar";
 import Logo from "./Logo";
-import { MdFormatAlignLeft } from "react-icons/md";
+import { BsArrowLeft } from "react-icons/bs";
 import { TiUser } from "react-icons/ti";
 import { FaCaretDown, FaSearch } from "react-icons/fa";
-import { BsArrowLeft } from "react-icons/bs";
+import { FiMenu } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 import { useAppContext } from "../context/appContext";
@@ -37,7 +37,7 @@ const Navbar = () => {
                 setShowSidebar(!showSidebar);
               }}
             >
-              <MdFormatAlignLeft></MdFormatAlignLeft>
+              <FiMenu />
             </button>
             <div className="logo">
               <Logo />
@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className={isMainPage ? "left-2" : "left-2 not-main"}>
             {!isMainPage && (
               <button className="back-arrow" onClick={() => navigate(-1)}>
-                <BsArrowLeft></BsArrowLeft>
+                <BsArrowLeft />
               </button>
             )}
           </div>
@@ -66,9 +66,9 @@ const Navbar = () => {
         <div className="right">
           <div className="btn-container">
             <button className="btn" onClick={() => setShowStatus(!showStatus)}>
-              <TiUser></TiUser>
+              <TiUser />
               {user ? user.firstName : "not logged in"}
-              <FaCaretDown></FaCaretDown>
+              <FaCaretDown />
             </button>
             <div className={showStatus ? "dropdown show-dropdown" : "dropdown"}>
               {user ? (

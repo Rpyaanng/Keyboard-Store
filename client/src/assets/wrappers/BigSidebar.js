@@ -136,11 +136,19 @@ const Wrapper = styled.aside`
     display: flex;
     justify-content: center;
     padding-top: 0.5rem;
-  }
-  .sidebar-btn {
+    border-radius: 50%;
+    border: 1px solid ${(props) => props.theme.text}11;
   }
 
-  .theme {
+  .btn:has(.sun-anim):hover {
+    background: #caf0eb;
+  }
+
+  .btn:has(.moon-anim):hover {
+    background: #1b0e8c;
+  }
+
+  .sidebar-btn {
   }
 
   @media (min-width: 992px) {

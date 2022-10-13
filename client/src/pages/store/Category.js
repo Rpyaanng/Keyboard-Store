@@ -19,10 +19,11 @@ const Category = () => {
     const response = await Axios.get(
       `/api/v1/products/category/${categories[category]}?limit=20&page=${page}`
     );
-    const { products } = response.data;
+    const { products, totalPages } = response.data;
     setProducts(products);
     setIsLoading(false);
-    setTotalPages(response, totalPages);
+    setTotalPages(totalPages);
+    console.log(totalPages, currentPage);
   };
 
   useEffect(() => {
@@ -44,12 +45,13 @@ const Category = () => {
         </div>
       </div>
 
-      {totalPages > 1 && (
+      {totalPages >= 1 && (
         <div className="pagination">
           <Pagination
             count={totalPages}
+            page={currentPage}
             onChange={(e, page) => {
-              console.log(page);
+              setCurrentPage(page);
             }}
           />
         </div>

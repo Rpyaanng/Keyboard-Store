@@ -5,9 +5,9 @@ const Wrapper = styled.main`
   background: ${(props) => props.theme.uiColor2};
   color: ${(props) => props.theme.text};
 
-  .btn {
+  /* .btn {
     background: ${(props) => props.theme.primary};
-  }
+  } */
 
   .btn-invert {
     background-color: ${(props) => props.theme.uiColor};

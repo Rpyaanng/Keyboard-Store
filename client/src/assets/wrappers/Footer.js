@@ -5,6 +5,11 @@ const Wrapper = styled.footer`
   position: none;
   bottom: 0px;
 
+  svg {
+    height: 48px;
+    width: 48px;
+  }
+
   .logo {
     /* fill: ${(props) => props.theme.text}; */
   }
@@ -13,7 +18,7 @@ const Wrapper = styled.footer`
     display: block;
 
     margin-top: 2rem;
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.text};
     background: ${(props) => props.theme.uiColor};
     padding-top: 2rem;
     padding-bottom: 5rem;
@@ -21,6 +26,7 @@ const Wrapper = styled.footer`
       font-size: 3rem;
     }
     .content {
+      margin-top: 1rem;
       display: grid;
       grid-template-columns: 1fr 1fr 2fr;
       gap: 1rem;

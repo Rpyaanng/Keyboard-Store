@@ -49,7 +49,7 @@ html {
   --star-border: #e27f3c;
 
   /* fonts  */
-  --logo-font: 'Hubballi', cursive;
+  --logo-font: 'Lexend Deca', sans-serif;
   --headingFont: 'Montserrat', sans-serif;
   --bodyFont: 'Montserrat', sans-serif;
   --small-text: 0.875rem;
@@ -293,7 +293,6 @@ section + section {
 
 .btn {
   cursor: pointer;
-  margin-left: 1rem;
   color: var(--white);
   background: var(--primary-500);
   border: transparent;
@@ -306,8 +305,12 @@ section + section {
   display: inline-block;
 }
 
+.btn + .btn{
+  margin-left: 1rem;
+}
+
 .btn:hover {
-  background: var(--primary-700) !important;
+  background: var(--primary-700);
   box-shadow: var(--shadow-3);
 }
 .btn-hipster {
@@ -514,7 +517,7 @@ section + section {
 
 .sun-anim {
   -webkit-animation-name: sun;
-  -webkit-animation-duration: 0.1s;
+  -webkit-animation-duration: 0.3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: forwards;
@@ -523,7 +526,7 @@ section + section {
 
 .moon-anim {
   -webkit-animation-name: moon;
-  -webkit-animation-duration: 0.1s;
+  -webkit-animation-duration: 0.3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: forwards;

@@ -2,7 +2,7 @@ import { useAppContext } from "../context/appContext";
 import NavLinks from "./NavLinks";
 import Logo from "../components/Logo";
 import Wrapper from "../assets/wrappers/BigSidebar";
-import { MdFormatAlignLeft } from "react-icons/md";
+import { FiMenu } from "react-icons/fi";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const BigSideBar = () => {
@@ -24,7 +24,7 @@ const BigSideBar = () => {
                   setShowSidebar(!showSidebar);
                 }}
               >
-                <MdFormatAlignLeft></MdFormatAlignLeft>
+                <FiMenu />
               </button>
             </header>
           </div>

@@ -52,31 +52,32 @@ const Product = () => {
         <div className="form-div">
           <form className="">
             <h3 className="name">{product.name}</h3>
-
             <div className="rating">
-              {Array(product.rating)
-                .fill()
-                .map((_, idx) => (
-                  <FaStar className="star" key={idx} />
-                ))}
-              {Array(5 - product.rating)
-                .fill()
-                .map((_, idx) => (
-                  <FaRegStar className="star" key={idx} />
-                ))}
               <a>
+                {Array(product.rating)
+                  .fill()
+                  .map((_, idx) => (
+                    <FaStar className="star" key={idx} />
+                  ))}
+                {Array(5 - product.rating)
+                  .fill()
+                  .map((_, idx) => (
+                    <FaRegStar className="star" key={idx} />
+                  ))}
+                &nbsp;
                 {product.numRatings
                   ? `${product.numRatings} Ratings`
                   : "No Ratings"}
               </a>
             </div>
+            <span>Quantity: </span>
             <select onChange={(e) => setQuantity(e.target.value)}>
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
             <button
-              className="btn"
+              className="btn btn-block checkout"
               onClick={(e) => {
                 e.preventDefault();
                 setShoppingCartItem(id, {
@@ -97,9 +98,10 @@ const Product = () => {
         </div>
       </div>
 
-      <div className="description">
-        <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
-      </div>
+      <div
+        className="description"
+        dangerouslySetInnerHTML={{ __html: product.description }}
+      ></div>
       <div>
         <h1 className="reviews">Reviews</h1>
         {product.reviews ? <p>Reviews!</p> : <p>No Reviews for this product</p>}

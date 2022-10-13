@@ -5,8 +5,8 @@ import {
   FaTwitterSquare,
   FaInstagramSquare,
   FaFacebookSquare,
-  FaDiscord,
 } from "react-icons/fa";
+import { BsDiscord } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
               <FaTwitterSquare />
               <FaInstagramSquare />
               <FaFacebookSquare />
-              <FaDiscord />
+              <BsDiscord />
             </ul>
           </div>
           <div>

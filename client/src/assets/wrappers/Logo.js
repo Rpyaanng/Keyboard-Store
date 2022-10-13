@@ -15,7 +15,13 @@ const Wrapper = styled.div`
   }
   .text {
     font-family: var(--logo-font);
+    letter-spacing: 2px;
     margin: 0;
+    margin-left: 0.5rem;
+
+    .matcha {
+      color: ${(props) => props.theme.primary};
+    }
   }
 `;
 
