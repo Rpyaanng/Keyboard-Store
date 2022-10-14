@@ -90,7 +90,6 @@ const Wrapper = styled.main`
     max-width: 100%;
   }
   .btn {
-    margin-top: 1rem;
   }
   .wrapper-class {
     padding: 1rem;
@@ -129,6 +128,7 @@ const Wrapper = styled.main`
 
   .checkout {
     border-radius: 1rem;
+    margin-top: 1rem;
   }
 
   .description-input[contenteditable]:empty::before {

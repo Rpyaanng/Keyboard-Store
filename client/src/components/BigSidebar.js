@@ -4,6 +4,7 @@ import Logo from "../components/Logo";
 import Wrapper from "../assets/wrappers/BigSidebar";
 import { FiMenu } from "react-icons/fi";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { BsFillSunFill } from "react-icons/bs";
 
 const BigSideBar = () => {
   const { setShowSidebar, showSidebar, isLightMode, toggleLightMode } =
@@ -39,7 +40,7 @@ const BigSideBar = () => {
                 }
               >
                 <FaMoon className="moon" />
-                <FaSun className="sun" />
+                <BsFillSunFill className="sun" />
               </div>
             </button>
           </div>

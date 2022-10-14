@@ -55,7 +55,7 @@ const Checkout = () => {
       </div>
       <div className="details">
         <h4>
-          Subtotal: <span className="total">{total}</span>
+          Subtotal: <span className="total">${total}</span>
         </h4>
       </div>
       <div className="proceed">

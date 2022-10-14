@@ -65,7 +65,7 @@ const Wrapper = styled.nav`
     background: transparent;
     border-color: transparent;
     font-size: 1.75rem;
-    color: var(--primary-500);
+    color: ${(props) => props.theme.text};
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -109,6 +109,10 @@ const Wrapper = styled.nav`
   .logo-text {
     display: none;
     margin: 0;
+  }
+
+  .logo {
+    cursor: pointer;
   }
 
   .back-arrow {
@@ -157,6 +161,26 @@ const Wrapper = styled.nav`
     background-color: ${(props) => props.theme.uiColor3};
   }
 
+  .navbar-button {
+    background: none;
+    border: none;
+    color: ${(props) => props.theme.text};
+    box-shadow: none;
+    height: 100%;
+  }
+
+  .navbar-button:hover {
+    background: none;
+    border: 1px solid;
+    color: ${(props) => props.theme.text};
+  }
+
+  .navbar-button:focus {
+    background: none;
+    border: 1px solid;
+    color: ${(props) => props.theme.text};
+  }
+
   @media (min-width: 992px) {
     width: unset;
     position: sticky;
@@ -201,10 +225,29 @@ const Wrapper = styled.nav`
       display: flex;
     }
     .shopping-cart-notif {
-      font-size: 1rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      height: 16px;
+      width: 16px;
+      padding: 0.1rem;
+      color: var(--white);
+      background: var(--red-dark);
+      border-radius: 50%;
+      text-align: center;
+      position: relative;
+      left: -1rem;
+      top: 0.25rem;
+    }
+    .shopping-cart-notif:hover {
+      -webkit-animation-name: twitch;
+      -webkit-animation-duration: 0.25s;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-fill-mode: forwards;
     }
     .search {
       display: block;
+      margin-right: 5rem;
     }
   }
 `;

@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import CategoryFeature from "./CategoryFeature";
 import ProductListing from "./ProductListing";
 import CheckoutItem from "./CheckoutItem";
+import SearchResult from "./SearchResult";
 export {
   SectionTitle,
   ShoppingCartItem,
@@ -29,4 +30,5 @@ export {
   CategoryFeature,
   ProductListing,
   CheckoutItem,
+  SearchResult,
 };

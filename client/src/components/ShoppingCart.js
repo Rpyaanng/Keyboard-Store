@@ -46,10 +46,10 @@ const ShoppingCart = () => {
             </button>
           </div>
           <div className="middle">
-            {Object.entries(shoppingCart).map(([key, values]) => {
+            {Object.entries(shoppingCart).map(([key, item]) => {
               return (
                 <div>
-                  <ShoppingCartItem key={key} item={values} />
+                  <ShoppingCartItem key={item.id + "Cart"} item={item} />
                   <hr />
                 </div>
               );

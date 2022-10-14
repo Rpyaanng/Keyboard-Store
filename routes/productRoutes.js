@@ -9,6 +9,7 @@ import {
   getProducts,
   updateProduct,
   getCategory,
+  searchProducts,
 } from "../controllers/productController.js";
 import authenticateUser from "../middleware/auth.js";
 import authenticateAdmin from "../middleware/admin.js";
@@ -21,10 +22,7 @@ router
   .get(getProduct)
   .delete(authenticateUser, authenticateAdmin, deleteProduct)
   .patch(authenticateUser, authenticateAdmin, updateProduct);
-router
-  .route("/category/:category")
-  .get(getCategory)
-  .delete(authenticateUser, authenticateAdmin, deleteProduct)
-  .patch(authenticateUser, authenticateAdmin, updateProduct);
+router.route("/search/:query").get(searchProducts);
+router.route("/category/:category").get(getCategory);
 
 export default router;

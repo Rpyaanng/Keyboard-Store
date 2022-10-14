@@ -22,17 +22,19 @@ const Wrapper = styled.main`
   .table {
     border: var(--borderRadius);
     overflow: hidden;
-    padding: 1rem;
+
     margin-bottom: 1rem;
   }
 
   table {
-    border-spacing: 0 var(--product-gap);
+    border-spacing: 0 var(--product-gap-mobile);
     border-collapse: separate;
   }
 
   th {
+    background: ${(props) => props.theme.uiColor};
     color: ${(props) => props.theme.text} !important;
+    border-bottom: ${(props) => props.theme.primary} 3px solid;
   }
 
   tr {
@@ -90,8 +92,9 @@ const Wrapper = styled.main`
   }
 
   .thumbnail {
-    height: 42px;
-    width: 42px;
+    height: 56px;
+    width: 56px;
+    margin-left: 1rem;
   }
 
   td:has(.thumbnail) {
@@ -102,6 +105,10 @@ const Wrapper = styled.main`
     .thumbnail {
       height: 94px;
       width: 94px;
+    }
+
+    table {
+      border-spacing: 0 var(--product-gap);
     }
   }
 `;

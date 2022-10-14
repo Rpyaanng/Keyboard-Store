@@ -99,11 +99,35 @@ const getCategory = async (req, res) => {
   });
 };
 
+
+const searchProducts = async (req, res) => {
+  // Access the provided 'page' and 'limt' query parameters
+  const { page = 1, limit = 1 } = req.query;
+
+  // Find all products
+  const products = await Product.find({
+    $or: [
+      { name: { $regex: req.params.query, $options: "i" } },
+      { categories: { $regex: req.params.query, $options: "i" } }, // if query is in category
+      // { description: { $regex: req.params.query, $options: "i" } }, // if query is in description
+    ],
+  })
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .exec();
+
+  // Return the articles to the rendering engine
+  res.status(StatusCodes.OK).json({
+    products,
+  });
+};
+
 export {
   createProduct,
   deleteProduct,
   getProduct,
   getCategory,
   getProducts,
+  searchProducts,
   updateProduct,
 };

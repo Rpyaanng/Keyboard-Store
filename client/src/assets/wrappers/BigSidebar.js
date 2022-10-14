@@ -141,11 +141,11 @@ const Wrapper = styled.aside`
   }
 
   .btn:has(.sun-anim):hover {
-    background: #caf0eb;
+    background: #3cbad7;
   }
 
   .btn:has(.moon-anim):hover {
-    background: #1b0e8c;
+    background: #0c343d;
   }
 
   .sidebar-btn {

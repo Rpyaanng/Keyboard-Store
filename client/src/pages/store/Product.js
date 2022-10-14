@@ -6,9 +6,10 @@ import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Product = () => {
-  const { setShoppingCartItem } = useAppContext();
+  const { setShoppingCartItem, shoppingCart } = useAppContext();
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     name: "",
@@ -33,7 +34,7 @@ const Product = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
@@ -76,21 +77,28 @@ const Product = () => {
               <option>2</option>
               <option>3</option>
             </select>
-            <button
-              className="btn btn-block checkout"
-              onClick={(e) => {
-                e.preventDefault();
-                setShoppingCartItem(id, {
-                  id: id,
-                  quantity: quantity,
-                  imageUrl: product.images[0],
-                  name: product.name,
-                  price: product.price,
-                });
-              }}
-            >
-              Add to Cart
-            </button>
+            {id in shoppingCart ? (
+              <button
+                className="btn-grad btn-block checkout"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShoppingCartItem(id, {
+                    id: id,
+                    quantity: quantity,
+                    imageUrl: product.images[0],
+                    name: product.name,
+                    price: product.price,
+                  });
+                }}
+              >
+                Add to Cart
+              </button>
+            ) : (
+              <button className="btn-grad btn-block checkout">
+                Added To Cart
+              </button>
+            )}
+
             <hr></hr>
             <p className="price">${product.price.toFixed(2)}</p>
           </form>

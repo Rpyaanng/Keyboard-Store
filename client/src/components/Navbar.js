@@ -4,12 +4,13 @@ import { BsArrowLeft } from "react-icons/bs";
 import { TiUser } from "react-icons/ti";
 import { FaCaretDown, FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { TiShoppingCart } from "react-icons/ti";
 import { useState } from "react";
 import { useAppContext } from "../context/appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import Axios from "axios";
+import { SearchResult } from "./";
 const Navbar = () => {
   const {
     user,
@@ -23,8 +24,28 @@ const Navbar = () => {
   } = useAppContext();
 
   const [showStatus, setShowStatus] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
+
+  const searchHandler = async (e) => {
+    console.log(e);
+    if (!e.target.value) {
+      setShowResults(false);
+      return;
+    }
+    setShowResults(true);
+    // controller call
+    const response = await Axios.get(
+      `/api/v1/products/search/${e.target.value}?limit=5`
+    );
+
+    const { products } = response.data;
+
+    //set search results
+    setSearchResults(products);
+    console.log(products);
+  };
 
   return (
     <Wrapper>
@@ -39,7 +60,7 @@ const Navbar = () => {
             >
               <FiMenu />
             </button>
-            <div className="logo">
+            <div className="logo" onClick={() => navigate("/")}>
               <Logo />
             </div>
           </div>
@@ -53,9 +74,37 @@ const Navbar = () => {
         </div>
         <div className="middle">
           <div className="search-div btn-container">
-            <input className="main-input" placeholder="Search for Product" />
-            <div className="dropdown">
-              <button className="dropdown-btn">hello</button>
+            <input
+              className="main-input"
+              placeholder="Search for Product"
+              onBlur={(e) => {
+                if (
+                  e.nativeEvent.explicitOriginalTarget &&
+                  e.nativeEvent.explicitOriginalTarget ===
+                    e.nativeEvent.originalTarget
+                )
+                  return;
+
+                if (showResults) {
+                  setTimeout(() => {
+                    setShowResults(false);
+                  }, 100);
+                }
+              }}
+              onChange={(e) => searchHandler(e)}
+            />
+            <div
+              className={showResults ? "dropdown show-dropdown" : "dropdown"}
+            >
+              {searchResults.map((result) => {
+                return (
+                  <SearchResult
+                    key={result._id + "search"}
+                    item={result}
+                    className="dropdown-btn"
+                  ></SearchResult>
+                );
+              })}
             </div>
           </div>
 
@@ -65,9 +114,26 @@ const Navbar = () => {
         </div>
         <div className="right">
           <div className="btn-container">
-            <button className="btn" onClick={() => setShowStatus(!showStatus)}>
+            <button
+              className="navbar-button btn"
+              onClick={() => setShowStatus(!showStatus)}
+              onBlur={(e) => {
+                if (
+                  e.nativeEvent.explicitOriginalTarget &&
+                  e.nativeEvent.explicitOriginalTarget ===
+                    e.nativeEvent.originalTarget
+                ) {
+                  return;
+                }
+                if (showStatus) {
+                  setTimeout(() => {
+                    setShowStatus(false);
+                  }, 100);
+                }
+              }}
+            >
               <TiUser />
-              {user ? user.firstName : "not logged in"}
+              {user ? `Hello, ${user.firstName}` : "not logged in"}
               <FaCaretDown />
             </button>
             <div className={showStatus ? "dropdown show-dropdown" : "dropdown"}>
@@ -94,12 +160,12 @@ const Navbar = () => {
           </div>
           <div>
             <button
-              className="toggle-btn"
+              className="toggle-btn shopping-toggle"
               onClick={() => setShoppingCart(!showShoppingCart)}
             >
-              <AiOutlineShoppingCart />
+              <TiShoppingCart />
               <div className="shopping-cart-notif">
-                {Object.keys(shoppingCart).length}
+                <span>{Object.keys(shoppingCart).length}</span>
               </div>
             </button>
           </div>
