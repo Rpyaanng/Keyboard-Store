@@ -21,6 +21,7 @@ const BigSideBar = () => {
             <header>
               <button
                 className="toggle-btn"
+                title="Button to toggle the size of the sidebar"
                 onClick={() => {
                   setShowSidebar(!showSidebar);
                 }}

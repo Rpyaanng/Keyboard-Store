@@ -45,7 +45,9 @@ const Checkout = () => {
           </TableHead>
           <TableBody>
             {Object.entries(shoppingCart).map(([key, values]) => {
-              return <CheckoutItem item={values} />;
+              return (
+                <CheckoutItem key={values.id + "checkout"} item={values} />
+              );
             })}
           </TableBody>
         </Table>

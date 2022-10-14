@@ -1,11 +1,12 @@
 import Wrapper from "../assets/wrappers/ShoppingCartItem";
 import { useAppContext } from "../context/appContext";
 import { HiSelector } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCartItem = ({ item }) => {
   const { setShoppingCartItem, deleteShoppingCartItem } = useAppContext();
   const { id, name, quantity, price, imageUrl } = item;
-
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <div>
@@ -24,6 +25,9 @@ const ShoppingCartItem = ({ item }) => {
         <div className="options">
           <button className="quantity btn">
             qty: {quantity} <HiSelector />
+          </button>
+          <button className="edit" onClick={() => navigate(`/product/${id}`)}>
+            Edit
           </button>
           <button className="delete" onClick={() => deleteShoppingCartItem(id)}>
             Delete

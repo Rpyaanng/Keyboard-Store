@@ -620,6 +620,19 @@ section + section {
       transform: rotate(0deg);
     }
    }
+
+
+   @keyframes grow-shrink {
+    0% {
+    transform: scale(100%);
+    }
+    50% {
+      transform: scale(150%);
+    }
+    100% {
+      transform: scale(100%);
+    }
+   }
   
   
   @keyframes loading {

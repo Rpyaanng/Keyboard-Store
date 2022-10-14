@@ -28,6 +28,16 @@ const Wrapper = styled.div`
     justify-content: right;
   }
 
+  .edit {
+    background: none;
+    border: none;
+    color: ${(props) => props.theme.text};
+  }
+
+  .edit:hover {
+    text-decoration: underline;
+  }
+
   .price {
   }
 

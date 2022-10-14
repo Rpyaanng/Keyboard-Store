@@ -105,11 +105,14 @@ const Wrapper = styled.aside`
 
     color: #a1a1a1;
   }
-  .theme {
-  }
 
   .active {
     color: var(--grey-900);
+    -webkit-animation-name: grow-shrink;
+    -webkit-animation-duration: 0.25s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: backwards;
   }
   .active {
     background-color: ${(props) => props.theme.primary};
