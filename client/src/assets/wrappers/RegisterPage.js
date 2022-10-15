@@ -3,7 +3,9 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   display: grid;
   align-items: center;
-  margin-top: 3rem;
+  color: ${(props) => props.theme.text};
+  background: ${(props) => props.theme.uiColor2};
+
   .logo {
     display: block;
     margin: 0 auto;
@@ -12,6 +14,11 @@ const Wrapper = styled.section`
   .form {
     max-width: 400px;
     border-top: 5px solid var(--primary-500);
+
+    background: ${(props) => props.theme.uiColor};
+  }
+  input {
+    color: ${(props) => props.theme.text};
   }
 
   h3 {

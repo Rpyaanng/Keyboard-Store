@@ -114,6 +114,7 @@ const Wrapper = styled.aside`
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-fill-mode: backwards;
   }
+
   .active {
     background-color: ${(props) => props.theme.primary};
   }
@@ -134,17 +135,16 @@ const Wrapper = styled.aside`
     background-color: ${(props) => props.theme.uiColor};
     box-shadow: var(--shadow-3);
     height: 32px;
-    width: 32px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     padding-top: 0.5rem;
-    border-radius: 50%;
+    width: 100%;
     border: 1px solid ${(props) => props.theme.text}11;
   }
 
   .btn:has(.sun-anim):hover {
-    background: #3cbad7;
+    background: #83c3d1;
   }
 
   .btn:has(.moon-anim):hover {

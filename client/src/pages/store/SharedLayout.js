@@ -7,11 +7,12 @@ import {
   ShoppingCart,
   Footer,
 } from "../../components";
-import { lightTheme, darkTheme } from "../../components/Themes";
-import { useAppContext } from "../../context/appContext";
+
 import { useEffect } from "react";
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "../../components/Themes";
+import { useAppContext } from "../../context/appContext";
 
 const SharedLayout = () => {
   const { isLightMode } = useAppContext(true);

@@ -1,6 +1,7 @@
 import Product from "../models/Product.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError } from "../errors/index.js";
+import { query } from "express";
 const createProduct = async (req, res) => {
   const { name, price, quantity, images, categories, description, hidden } =
     req.body;
@@ -70,7 +71,7 @@ const getProducts = async (req, res) => {
   res.status(StatusCodes.OK).json({
     products,
     totalPages: Math.ceil(count / limit),
-    currentPage: page,
+    currentPage: Number(page),
   });
 };
 
@@ -95,31 +96,40 @@ const getCategory = async (req, res) => {
   res.status(StatusCodes.OK).json({
     products,
     totalPages: Math.ceil(count / limit),
-    currentPage: page,
+    currentPage: Number(page),
   });
 };
 
-
 const searchProducts = async (req, res) => {
   // Access the provided 'page' and 'limt' query parameters
-  const { page = 1, limit = 1 } = req.query;
-
-  // Find all products
-  const products = await Product.find({
+  const { page, limit } = req.query;
+  var query = Product.find({
     $or: [
-      { name: { $regex: req.params.query, $options: "i" } },
+      { name: { $regex: req.params.query, $options: "^" } },
       { categories: { $regex: req.params.query, $options: "i" } }, // if query is in category
       // { description: { $regex: req.params.query, $options: "i" } }, // if query is in description
     ],
-  })
-    .limit(limit * 1)
-    .skip((page - 1) * limit)
-    .exec();
+  });
+  if (limit) {
+    query = query.limit(limit);
+    query = query.skip((page - 1) * limit);
+  }
+
+  // Find all products
+  const products = await query.exec();
+  const count = await Product.countDocuments();
+
+  const response = {
+    products,
+  };
+
+  if (limit) {
+    response.totalPages = Math.ceil(count / limit);
+    response.currentPage = Number(page);
+  }
 
   // Return the articles to the rendering engine
-  res.status(StatusCodes.OK).json({
-    products,
-  });
+  res.status(StatusCodes.OK).json(response);
 };
 
 export {

@@ -39,7 +39,8 @@ const Wrapper = styled.main`
   .quantity-input {
     background: none;
     font-size: 1rem;
-    border: none;
+
+    border-radius: var(--borderRadius);
     color: var(--textColor);
   }
 
@@ -124,6 +125,9 @@ const Wrapper = styled.main`
     resize: none;
     min-height: 40px;
     line-height: 20px;
+  }
+
+  .quantity-input {
   }
 
   .checkout {

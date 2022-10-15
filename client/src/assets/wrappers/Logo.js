@@ -10,8 +10,10 @@ const Wrapper = styled.div`
   .logo {
     max-width: 100%;
     height: min-content;
-    width: 32px;
-    fill: var(--primary-500);
+    width: 42px;
+    fill: ${(props) => props.theme.primary};
+    transition: var(--transition);
+    margin-bottom: 0.8rem;
   }
   .text {
     font-family: var(--logo-font);

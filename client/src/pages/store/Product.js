@@ -51,57 +51,59 @@ const Product = () => {
           </Carousel>
         </div>
         <div className="form-div">
-          <form className="">
-            <h3 className="name">{product.name}</h3>
-            <div className="rating">
-              <a>
-                {Array(product.rating)
-                  .fill()
-                  .map((_, idx) => (
-                    <FaStar className="star" key={idx} />
-                  ))}
-                {Array(5 - product.rating)
-                  .fill()
-                  .map((_, idx) => (
-                    <FaRegStar className="star" key={idx} />
-                  ))}
-                &nbsp;
-                {product.numRatings
-                  ? `${product.numRatings} Ratings`
-                  : "No Ratings"}
-              </a>
-            </div>
-            <span>Quantity: </span>
-            <select onChange={(e) => setQuantity(e.target.value)}>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-            {id in shoppingCart ? (
-              <button
-                className="btn-grad btn-block checkout"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShoppingCartItem(id, {
-                    id: id,
-                    quantity: quantity,
-                    imageUrl: product.images[0],
-                    name: product.name,
-                    price: product.price,
-                  });
-                }}
-              >
-                Add to Cart
-              </button>
-            ) : (
-              <button className="btn-grad btn-block checkout">
-                Added To Cart
-              </button>
-            )}
+          <h3 className="name">{product.name}</h3>
+          <div className="rating">
+            <a>
+              {Array(product.rating)
+                .fill()
+                .map((_, idx) => (
+                  <FaStar className="star" key={idx} />
+                ))}
+              {Array(5 - product.rating)
+                .fill()
+                .map((_, idx) => (
+                  <FaRegStar className="star" key={idx} />
+                ))}
+              &nbsp;
+              {product.numRatings
+                ? `${product.numRatings} Ratings`
+                : "No Ratings"}
+            </a>
+          </div>
+          <span>Quantity: </span>
+          <select
+            className="quantity-input"
+            onChange={(e) => setQuantity(e.target.value)}
+          >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+          {id in shoppingCart ? (
+            <button className="btn-grad btn-block checkout">
+              Added To Cart
+            </button>
+          ) : (
+            <button
+              className="btn-grad btn-block checkout"
+              onClick={(e) => {
+                console.log(id);
+                setShoppingCartItem(id, {
+                  id: id,
+                  quantity: quantity,
+                  imageUrl: product.images[0],
+                  name: product.name,
+                  price: product.price,
+                });
+              }}
+            >
+              Add to Cart
+            </button>
+          )}
 
-            <hr></hr>
-            <p className="price">${product.price.toFixed(2)}</p>
-          </form>
+          <hr></hr>
+          <p className="price">${product.price.toFixed(2)}</p>
+
           <hr></hr>
         </div>
       </div>

@@ -86,7 +86,8 @@ const Wrapper = styled.nav`
     top: 40px;
     left: 0;
     width: 100%;
-    background: var(--white);
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.uiColor};
     box-shadow: var(--shadow-2);
     padding: 0.5rem;
     text-align: center;
@@ -179,6 +180,42 @@ const Wrapper = styled.nav`
     background: none;
     border: 1px solid;
     color: ${(props) => props.theme.text};
+  }
+
+  .thumbnail-placeholder {
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.text};
+  }
+
+  .search-placeholder {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    height: 4rem;
+    width: 100%;
+
+    padding: 0.5em;
+    text-align: left;
+    box-shadow: var(--shadow-1);
+
+    color: ${(props) => props.theme.text};
+    background: ${(props) => props.theme.uiColor};
+
+    border: 1px solid ${(props) => props.theme.uiColor3};
+    border-radius: var(--borderRadius);
+  }
+
+  .search-placeholder:hover {
+    background: ${(props) => props.theme.uiColor3};
+  }
+
+  .name-placeholder {
+    margin-left: 0.25rem;
+    color: ${(props) => props.theme.text};
+  }
+
+  .details-placeholder {
+    text-align: right;
+    color: ${(props) => props.theme.primary};
   }
 
   @media (min-width: 992px) {

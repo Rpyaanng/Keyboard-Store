@@ -5,7 +5,7 @@ import { TiUser } from "react-icons/ti";
 import { FaCaretDown, FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { TiShoppingCart } from "react-icons/ti";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppContext } from "../context/appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -23,21 +23,31 @@ const Navbar = () => {
     showShoppingCart,
   } = useAppContext();
 
+  const [addedItem, setAddedItem] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [numSearchResult, setNumSearchResults] = useState(5);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setAddedItem(true);
+    setTimeout(() => {
+      setAddedItem(false);
+    }, 1000);
+  }, [shoppingCart]);
 
   const searchHandler = async (e) => {
     console.log(e);
     if (!e.target.value) {
       setShowResults(false);
+
       return;
     }
     setShowResults(true);
     // controller call
     const response = await Axios.get(
-      `/api/v1/products/search/${e.target.value}?limit=5`
+      `/api/v1/products/search/${e.target.value}`
     );
 
     const { products } = response.data;
@@ -45,6 +55,13 @@ const Navbar = () => {
     //set search results
     setSearchResults(products);
     console.log(products);
+  };
+
+  const onEnterHander = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/search/${e.target.value}`);
+      setShowResults(false);
+    }
   };
 
   return (
@@ -77,6 +94,10 @@ const Navbar = () => {
             <input
               className="main-input"
               placeholder="Search for Product"
+              onKeyDown={(e) => onEnterHander(e)}
+              onClick={(e) => {
+                e.target.value && setShowResults(true);
+              }}
               onBlur={(e) => {
                 if (
                   e.nativeEvent.explicitOriginalTarget &&
@@ -96,15 +117,29 @@ const Navbar = () => {
             <div
               className={showResults ? "dropdown show-dropdown" : "dropdown"}
             >
-              {searchResults.map((result) => {
+              {searchResults.slice(0, numSearchResult).map((result) => {
                 return (
                   <SearchResult
                     key={result._id + "search"}
                     item={result}
                     className="dropdown-btn"
-                  ></SearchResult>
+                  />
                 );
               })}
+              <div className="search-placeholder">
+                <div className="thumbnail thumbnail-placeholder"></div>
+                <div>
+                  <span className="name-placeholder">
+                    {Math.max(0, searchResults.length - numSearchResult) > 1
+                      ? `${searchResults.length - numSearchResult} more `
+                      : "No "}
+                    items found
+                  </span>
+                  <p className="details-placeholder">
+                    Press Enter to see results
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -164,7 +199,13 @@ const Navbar = () => {
               onClick={() => setShoppingCart(!showShoppingCart)}
             >
               <TiShoppingCart />
-              <div className="shopping-cart-notif">
+              <div
+                className={
+                  addedItem
+                    ? "shopping-cart-notif grow-shrink"
+                    : "shopping-cart-notif"
+                }
+              >
                 <span>{Object.keys(shoppingCart).length}</span>
               </div>
             </button>

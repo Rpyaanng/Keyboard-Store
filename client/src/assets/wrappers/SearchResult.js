@@ -2,10 +2,17 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: block;
   width: 100%;
-  /* box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1); */
+  box-shadow: var(--shadow-1);
   padding: 0.5em;
   text-align: center;
-  color: black;
+  color: ${(props) => props.theme.text};
+  background: ${(props) => props.theme.uiColor};
+
+  border: 1px solid ${(props) => props.theme.uiColor3};
+  border-radius: var(--borderRadius);
+  :hover {
+    background: ${(props) => props.theme.uiColor3};
+  }
 
   .options {
     margin-top: 12px;
@@ -15,7 +22,6 @@ const Wrapper = styled.div`
   }
 
   .product-name {
-    font-weight: bold;
   }
 
   .delete {
@@ -32,6 +38,7 @@ const Wrapper = styled.div`
   .details {
     display: flex;
     justify-content: right;
+    color: ${(props) => props.theme.primary};
   }
 
   .price {

@@ -7,12 +7,12 @@ import {
   Product,
   Checkout,
   Profile,
+  Search,
   SharedLayout,
 } from "./pages/store";
 
 import ScrollToTop from "./utils/ScrollToTop";
 import CheckMainPage from "./utils/CheckMainPage";
-
 
 const App = () => {
   return (
@@ -24,6 +24,7 @@ const App = () => {
               <Route index element={<FrontPage />} />
               <Route path="product/:id" element={<Product />}></Route>
               <Route path="category/:category" element={<Category />}></Route>
+              <Route path="search/:query" element={<Search />}></Route>
               <Route path="checkout" element={<Checkout />}></Route>
               <Route
                 path="profile"
