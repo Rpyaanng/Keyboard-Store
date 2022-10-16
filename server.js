@@ -31,16 +31,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.get("/", (req, res) => {
-  res.send("Welcome!");
-});
-
-app.get("/api/v1", (req, res) => {
-  res.send("Welcome!");
-});
-
 // only when ready to deploy
-app.use(path.join(__dirname, "client/build"));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use(express.json());
 app.use(helmet());
