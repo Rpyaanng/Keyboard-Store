@@ -40,7 +40,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 // only when ready to deploy
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(path.join(__dirname, "client/build"));
 
 app.use(express.json());
 app.use(helmet());
