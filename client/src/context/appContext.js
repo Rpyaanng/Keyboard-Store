@@ -39,7 +39,7 @@ export const initialState = {
   showShoppingCart: showShoppingCart ? JSON.parse(showShoppingCart) : false,
   shoppingCart: shoppingCart ? JSON.parse(shoppingCart) : {},
   isMainPage: false,
-  isLightMode: isLightMode ? JSON.parse(isLightMode) : false,
+  isLightMode: isLightMode ? JSON.parse(isLightMode) : true,
 };
 
 const AppContext = React.createContext();
