@@ -11,9 +11,13 @@ const Wrapper = styled.main`
 
   .products {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 1px;
-    gap: 1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--product-gap-mobile);
+    gap: var(--product-gap-mobile);
+    padding: 1rem;
+    background-color: ${(props) => props.theme.uiColor3};
+    box-shadow: var(--shadow-1);
+    border-radius: var(--borderRadius);
   }
 
   .pagination {
@@ -25,7 +29,7 @@ const Wrapper = styled.main`
   @media (min-width: 992px) {
     .products {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       row-gap: 1rem;
       gap: 0.5rem;
     }

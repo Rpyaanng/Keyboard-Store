@@ -2,7 +2,7 @@ import { Featured, Recommended, CategoryFeature } from "../../components";
 import { useEffect } from "react";
 const FrontPage = () => {
   useEffect(() => {
-    document.title = "FrontPage";
+    document.title = "Matcha_Keys";
   }, []);
   return (
     <main>

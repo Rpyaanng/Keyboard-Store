@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   .section {
-    border-radius: var(--borderRadius);
     /* background: ${(props) => props.theme.uiColor}; */
     padding: 1rem;
   }
@@ -11,6 +10,10 @@ const Wrapper = styled.section`
     grid-template-columns: auto;
     row-gap: var(--product-gap-mobile);
     gap: var(--product-gap-mobile);
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: ${(props) => props.theme.uiColor3};
+    box-shadow: var(--shadow-1);
+    border-radius: var(--borderRadius);
   }
   @media (min-width: 992px) {
     .products {

@@ -12,6 +12,10 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: var(--product-gap-mobile);
     gap: var(--product-gap-mobile);
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: ${(props) => props.theme.uiColor3};
+    box-shadow: var(--shadow-1);
+    border-radius: var(--borderRadius);
   }
 
   .more {
@@ -44,7 +48,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 992px) {
     .products {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       row-gap: var(--product-gap);
       gap: var(--product-gap);
     }

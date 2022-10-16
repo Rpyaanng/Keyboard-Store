@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  margin-top: 1rem;
+  margin: 1rem;
   .carousel-root {
     display: grid;
     grid-template-columns: auto 1fr;
+    gap: var(--product-gap-mobile);
+    padding: 0.5rem;
+    background-color: ${(props) => props.theme.uiColor3};
+    box-shadow: var(--shadow-1);
+    border-radius: var(--borderRadius);
   }
 
   .featured-img {

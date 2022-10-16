@@ -16,7 +16,7 @@ const CategoryFeature = ({ title, category }) => {
 
   const getProducts = async () => {
     const response = await Axios.get(
-      `/api/v1/products/category/${categories[category]}?limit=3`
+      `/api/v1/products/category/${categories[category]}?limit=4`
     );
     const { products } = response.data;
     setProducts(products);

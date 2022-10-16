@@ -34,7 +34,7 @@ const Navbar = () => {
     setAddedItem(true);
     setTimeout(() => {
       setAddedItem(false);
-    }, 1000);
+    }, 500);
   }, [shoppingCart]);
 
   const searchHandler = async (e) => {

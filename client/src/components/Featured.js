@@ -8,7 +8,7 @@ import Wrapper from "../assets/wrappers/Featured";
 const Featured = () => {
   return (
     <Wrapper>
-      {/* <SectionTitle title="Featured" /> */}
+      <SectionTitle title="Featured" />
       <Carousel
         style={{ boxShadow: "var(--shadow-1)" }}
         showThumbs={true}

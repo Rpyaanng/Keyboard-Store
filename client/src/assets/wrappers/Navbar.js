@@ -192,14 +192,11 @@ const Wrapper = styled.nav`
     grid-template-columns: max-content 1fr;
     height: 4rem;
     width: 100%;
-
     padding: 0.5em;
     text-align: left;
     box-shadow: var(--shadow-1);
-
     color: ${(props) => props.theme.text};
     background: ${(props) => props.theme.uiColor};
-
     border: 1px solid ${(props) => props.theme.uiColor3};
     border-radius: var(--borderRadius);
   }

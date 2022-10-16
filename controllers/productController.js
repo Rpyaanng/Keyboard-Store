@@ -105,7 +105,7 @@ const searchProducts = async (req, res) => {
   const { page, limit } = req.query;
   var query = Product.find({
     $or: [
-      { name: { $regex: req.params.query, $options: "^" } },
+      { name: { $regex: req.params.query, $options: "i" } },
       { categories: { $regex: req.params.query, $options: "i" } }, // if query is in category
       // { description: { $regex: req.params.query, $options: "i" } }, // if query is in description
     ],

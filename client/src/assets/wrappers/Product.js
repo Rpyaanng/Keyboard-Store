@@ -37,11 +37,11 @@ const Wrapper = styled.main`
   }
 
   .quantity-input {
-    background: none;
+    background: ${(props) => props.theme.uiColor3};
     font-size: 1rem;
-
+    border: none;
     border-radius: var(--borderRadius);
-    color: var(--textColor);
+    color: ${(props) => props.theme.text};
   }
 
   .carousel .thumbs-wrapper {
@@ -125,9 +125,16 @@ const Wrapper = styled.main`
     resize: none;
     min-height: 40px;
     line-height: 20px;
+    margin-bottom: 1rem;
   }
 
   .quantity-input {
+  }
+
+  .reviews {
+    background: ${(props) => props.theme.uiColor};
+    border-radius: var(--borderRadius);
+    padding: 1em;
   }
 
   .checkout {
@@ -160,6 +167,25 @@ const Wrapper = styled.main`
   }
 
   .thumbs.animated {
+  }
+
+  .added {
+    background: var(--white);
+    color: var(--black);
+    text-align: center;
+    text-transform: uppercase;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    box-shadow: var(--shadow-2);
+  }
+
+  .check {
+    color: ${(props) => props.theme.primary};
+    font-size: 1rem;
+    justify-self: center;
   }
 
   @media (min-width: 992px) {

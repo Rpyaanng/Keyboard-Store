@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { BsCheckCircle } from "react-icons/bs";
 
 const Product = () => {
   const { setShoppingCartItem, shoppingCart } = useAppContext();
@@ -80,8 +81,11 @@ const Product = () => {
             <option>3</option>
           </select>
           {id in shoppingCart ? (
-            <button className="btn-grad btn-block checkout">
-              Added To Cart
+            <button className="added btn-block checkout">
+              <span>Added to cart</span>
+              <span className="check">
+                <BsCheckCircle />
+              </span>
             </button>
           ) : (
             <button
@@ -112,8 +116,8 @@ const Product = () => {
         className="description"
         dangerouslySetInnerHTML={{ __html: product.description }}
       ></div>
-      <div>
-        <h1 className="reviews">Reviews</h1>
+      <div className="reviews">
+        <h1>Reviews</h1>
         {product.reviews ? <p>Reviews!</p> : <p>No Reviews for this product</p>}
       </div>
     </Wrapper>

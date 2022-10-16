@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   border-radius: var(--borderRadius);
-  border: ${(props) => props.theme.uiColor2} 1px solid;
+  border: ${(props) => props.theme.uiColor} 1px solid;
   box-shadow: var(--shadow-1);
   background: ${(props) => props.theme.uiColor};
+  transition: var(--transition);
+
+  :hover {
+    transform: scale(105%);
+  }
 
   */ .rating {
     display: none;

@@ -281,6 +281,7 @@ section + section {
   border-radius: var(--borderRadius);
 }
 
+
 .activity{
   position: absolute;
   left: -45%;
