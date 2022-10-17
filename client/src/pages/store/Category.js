@@ -6,11 +6,12 @@ import Axios from "axios";
 import { useEffect } from "react";
 import categories from "../../utils/categories";
 import { Pagination } from "@mui/material";
+import ProductlListingLoader from "../../components/ProductlListingLoader";
 
 const Category = () => {
   const { category } = useParams();
 
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -23,12 +24,34 @@ const Category = () => {
     setProducts(products);
     setIsLoading(false);
     setTotalPages(totalPages);
-    console.log(totalPages, currentPage);
   };
 
   useEffect(() => {
+    setProducts(null);
     getProducts(currentPage);
   }, [category, currentPage]);
+
+  if (products == null) {
+    return (
+      <Wrapper>
+        <div className="section">
+          <SectionTitle title={category} />
+          <div className="products">
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+          </div>
+        </div>
+      </Wrapper>
+    );
+  }
 
   return categories[category] ? (
     <Wrapper>

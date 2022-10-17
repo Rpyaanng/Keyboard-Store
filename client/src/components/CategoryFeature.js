@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import ProductListing from "./ProductListing";
 import categories from "../utils/categories";
+import ProductlListingLoader from "./ProductlListingLoader";
 
 const CategoryFeature = ({ title, category }) => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState(null);
 
   const navigate = useNavigate();
 
@@ -20,12 +20,27 @@ const CategoryFeature = ({ title, category }) => {
     );
     const { products } = response.data;
     setProducts(products);
-    setIsLoading(false);
   };
 
   useEffect(() => {
     getProducts();
   }, []);
+  if (products == null) {
+    return (
+      <Wrapper>
+        <div className="section">
+          <SectionTitle title={`${title}`} />
+          <div className="products">
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+            <ProductlListingLoader />
+          </div>
+        </div>
+      </Wrapper>
+    );
+  }
   return (
     <Wrapper>
       <div className="section">
@@ -35,7 +50,6 @@ const CategoryFeature = ({ title, category }) => {
             <ProductListing
               key={product._id}
               product={product}
-              isLoading={isLoading}
             ></ProductListing>
           ))}
           {products[0] && (

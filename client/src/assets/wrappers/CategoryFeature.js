@@ -16,6 +16,7 @@ const Wrapper = styled.section`
     background-color: ${(props) => props.theme.uiColor3};
     box-shadow: var(--shadow-1);
     border-radius: var(--borderRadius);
+    min-height: 250px;
   }
 
   .more {

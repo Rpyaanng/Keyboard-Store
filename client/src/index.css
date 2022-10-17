@@ -573,6 +573,9 @@ section + section {
 
 
 @media screen and (min-width: 992px) {
+  .mobile-hidden{
+    display: inherit;
+  }
   .coffee-info {
     text-align: left;
   }
