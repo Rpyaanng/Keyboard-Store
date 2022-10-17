@@ -85,6 +85,7 @@ const Wrapper = styled.section`
 
     .thumbs.animated {
       margin: 0;
+      display: flex;
     }
   }
 `;
