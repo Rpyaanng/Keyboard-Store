@@ -69,7 +69,6 @@ const Wrapper = styled.section`
       display: block;
     }
     .thumbs-wrapper {
-      display: block;
       background: ${(props) => props.theme.uiColor3};
       height: 100%;
       border-radius: var(--borderRadius);
